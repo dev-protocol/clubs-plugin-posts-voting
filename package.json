@@ -1,5 +1,5 @@
 {
-	"name": "@devprotocol/clubs-plugin-starter-kit",
+	"name": "@devprotocol/clubs-plugin-posts-voting",
 	"version": "0.1.0",
 	"type": "module",
 	"description": "Template repository for using TypeScript",
@@ -22,7 +22,6 @@
 	"scripts": {
 		"test": "ava || echo 'skip'",
 		"preview": "astro --root .preview/preview.ssr dev",
-		"preview:static": "astro --root .preview/preview.static dev",
 		"build": "rollup -c",
 		"pretest": "yarn build",
 		"prebuild": "rimraf dist",
@@ -40,10 +39,12 @@
 		"bignumber.js": "9.1.2",
 		"ethers": "6.7.1",
 		"ramda": "0.29.1",
-		"sass": "1.69.4"
+		"sass": "1.69.4",
+		"uuid": "^9.0.1"
 	},
 	"peerDependencies": {
-		"@devprotocol/clubs-core": "^2.1.1"
+		"@devprotocol/clubs-core": "^2.1.1",
+		"@devprotocol/clubs-plugin-posts": "^0.7.0"
 	},
 	"devDependencies": {
 		"@astrojs/svelte": "^4.0.3",
@@ -51,6 +52,7 @@
 		"@astrojs/vue": "^3.0.0",
 		"@ava/typescript": "4.1.0",
 		"@devprotocol/clubs-core": "2.1.1",
+		"@devprotocol/clubs-plugin-posts": "^0.7.0",
 		"@rollup/plugin-typescript": "11.1.5",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/dotenv": "8.2.0",
@@ -85,5 +87,13 @@
 			},
 			"compile": false
 		}
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/dev-protocol/clubs-plugin-posts-voting.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dev-protocol/clubs-plugin-posts-voting/issues"
+	},
+	"homepage": "https://github.com/dev-protocol/clubs-plugin-posts-voting#readme"
 }

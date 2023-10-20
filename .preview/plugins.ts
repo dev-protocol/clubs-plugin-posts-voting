@@ -1,4 +1,5 @@
+import self from '../src/index'
 import theme from './theme'
-import sTokensViewer from '../src/index'
+import posts from '@devprotocol/clubs-plugin-posts'
 
-export default [theme, sTokensViewer]
+export default [self, theme, posts]
