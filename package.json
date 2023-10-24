@@ -42,6 +42,9 @@
 		"sass": "1.69.4",
 		"uuid": "^9.0.1"
 	},
+	"resolutions": {
+		"@devprotocol/util-ts": "4.0.0"
+	},
 	"peerDependencies": {
 		"@devprotocol/clubs-core": "^2.1.1",
 		"@devprotocol/clubs-plugin-posts": "^0.7.0"

@@ -10,4 +10,9 @@ config({ path: './.env' })
 export default defineConfig({
 	output: 'server',
 	integrations: [clubs(), vue(), tailwind(), svelte()],
+	vite: {
+		optimizeDeps: {
+			include: ['dayjs'],
+		},
+	},
 })
