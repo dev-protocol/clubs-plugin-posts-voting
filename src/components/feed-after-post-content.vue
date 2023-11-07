@@ -1,6 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import {ref, onMounted} from 'vue';
+import {currentPost} from '@devprotocol/clubs-plugin-posts/plugin-helper';
+
+const section = ref<Element>();
+let isMasked = ref<boolean | undefined>(undefined);
+
+onMounted(() => {
+	if (!section.value) {
+		return;
+	}
+
+	currentPost((data) => {
+		isMasked.value = data.masked;
+	}, section.value)
+});
+
+</script>
 <template>
-	<section>
+	<section v-if="isMasked !== true" ref="section">
 		<div class="flex flex-col gap-2 mb-4">
 			<div class="relative flex justify-between">
 				<div class="pl-2 font-bold z-10">Nizi</div>
