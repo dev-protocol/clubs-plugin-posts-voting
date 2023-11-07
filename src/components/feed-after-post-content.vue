@@ -1,21 +1,19 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { currentPost } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
-import {ref, onMounted} from 'vue';
-import {currentPost} from '@devprotocol/clubs-plugin-posts/plugin-helper';
-
-const section = ref<Element>();
-let isMasked = ref<boolean | undefined>(undefined);
+const section = ref<Element>()
+let isMasked = ref<boolean | undefined>(undefined)
 
 onMounted(() => {
 	if (!section.value) {
-		return;
+		return
 	}
 
 	currentPost((data) => {
-		isMasked.value = data.masked;
+		isMasked.value = data.masked
 	}, section.value)
-});
-
+})
 </script>
 <template>
 	<section v-if="isMasked !== true" ref="section">
