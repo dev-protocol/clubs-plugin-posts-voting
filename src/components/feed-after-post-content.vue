@@ -5,6 +5,32 @@ import { currentPost } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 const section = ref<Element>()
 let isMasked = ref<boolean | undefined>(undefined)
 
+const vote = {
+	selected: 1,
+	total: 818,
+	options: [
+		{
+			id: 1,
+			name: 'Nizi',
+			percent: 60.9,
+		},
+		{
+			id: 2,
+			name: 'SEVENTEEN',
+			percent: 17.8,
+		},
+		{
+			id: 3,
+			name: 'TAEMIN',
+			percent: 17.5,
+		},
+		{
+			id: 4,
+			name: 'JUNGKOOK',
+			percent: 3.8,
+		}]
+}
+
 onMounted(() => {
 	if (!section.value) {
 		return
@@ -18,39 +44,18 @@ onMounted(() => {
 <template>
 	<section v-if="isMasked !== true" ref="section">
 		<div class="flex flex-col gap-2 mb-4">
-			<div class="relative flex justify-between">
-				<div class="pl-2 font-bold z-10">Nizi</div>
-				<div class="pr-2 font-bold z-10">60.9%</div>
+			<div v-for="option in vote.options" class="relative flex justify-between">
+				<div class="pl-2 flex items-center gap-1 z-10">
+					<div class="font-bold">{{ option.name }}</div>
+					<div v-if="option.id === vote.selected">✓</div>
+				</div>
+				<div class="pr-2 font-bold z-10">{{ option.percent }}%</div>
 				<div
 					class="absolute bg-blue-300 h-full rounded"
-					style="width: 60.9%"
-				></div>
-			</div>
-			<div class="relative flex justify-between">
-				<div class="pl-2 font-bold z-10">SEVENTEEN</div>
-				<div class="pr-2 font-bold z-10">17.8%</div>
-				<div
-					class="absolute bg-blue-300 h-full rounded"
-					style="width: 17.8%"
-				></div>
-			</div>
-			<div class="relative flex justify-between">
-				<div class="pl-2 font-bold z-10">TAEMIN</div>
-				<div class="pr-2 font-bold z-10">17.5%</div>
-				<div
-					class="absolute bg-blue-300 h-full rounded"
-					style="width: 17.5%"
-				></div>
-			</div>
-			<div class="relative flex justify-between">
-				<div class="pl-2 font-bold z-10">JUNGKOOK</div>
-				<div class="pr-2 font-bold z-10">3.8%</div>
-				<div
-					class="absolute bg-blue-300 h-full rounded"
-					style="width: 3.8%"
+					:style="`width: ${option.percent}%`"
 				></div>
 			</div>
 		</div>
-		<p>818 votes</p>
+		<p>{{ vote.total }} votes</p>
 	</section>
 </template>
