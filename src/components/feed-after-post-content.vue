@@ -28,7 +28,8 @@ const vote = {
 			id: 4,
 			name: 'JUNGKOOK',
 			percent: 3.8,
-		}]
+		},
+	],
 }
 
 onMounted(() => {
