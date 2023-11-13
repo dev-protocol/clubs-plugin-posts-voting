@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { currentPost } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 import Vote from './Voting/Vote.vue'
 import Result from './Voting/Result.vue'
-import Form from './Voting/Form.vue';
+import Form from './Voting/Form.vue'
 
 const voting = ref<Element>()
 let isMasked = ref<boolean | undefined>(undefined)
