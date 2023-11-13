@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { currentPost } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 import Vote from './Voting/Vote.vue'
 import Result from './Voting/Result.vue'
+import Form from './Voting/Form.vue';
 
 const voting = ref<Element>()
 let isMasked = ref<boolean | undefined>(undefined)
@@ -60,6 +61,7 @@ const handleClickVote = (optionId: number) => {
 </script>
 <template>
 	<div v-if="isMasked !== true" ref="voting">
+		<Form />
 		<section v-if="!isVoted()" class="voting">
 			<Vote :handleClickVote="handleClickVote" :vote="vote" />
 		</section>
