@@ -22,7 +22,6 @@ const isOpened = ref(true)
 const handleClickRemovePoll = () => {
 	isOpened.value = false
 }
-
 </script>
 <template>
 	<div
@@ -134,7 +133,12 @@ const handleClickRemovePoll = () => {
 			</div>
 		</div>
 		<div class="border-t border-gray-400">
-			<button class="py-4 w-full border text-red-500" @click="handleClickRemovePoll">Remove poll</button>
+			<button
+				class="py-4 w-full border text-red-500"
+				@click="handleClickRemovePoll"
+			>
+				Remove poll
+			</button>
 		</div>
 	</div>
 </template>
