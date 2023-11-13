@@ -6,6 +6,16 @@ const options = ref([1, 2])
 const days = ref(Array.from({ length: 8 }, (_, index) => index))
 const hours = ref(Array.from({ length: 24 }, (_, index) => index))
 const minutes = ref(Array.from({ length: 60 }, (_, index) => index))
+
+const MAX_OPTIONS = 4
+
+const handleClickAddOption = () => {
+	if (options.value.length >= MAX_OPTIONS) {
+		return
+	}
+
+	options.value.push(options.value.length + 1)
+}
 </script>
 <template>
 	<div
@@ -25,10 +35,11 @@ const minutes = ref(Array.from({ length: 60 }, (_, index) => index))
 					/>
 				</div>
 			</div>
-			<div class="flex py-4 content-end items-end w-1/12">
+			<div v-if="options.length < MAX_OPTIONS" class="flex py-4 content-end items-end w-1/12">
 				<button
 					class="py-3 px-4"
 					style="color: transparent; text-shadow: 0 0 0 #3b82f6"
+					@click="handleClickAddOption"
 				>
 					➕
 				</button>
