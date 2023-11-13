@@ -35,7 +35,10 @@ const handleClickAddOption = () => {
 					/>
 				</div>
 			</div>
-			<div v-if="options.length < MAX_OPTIONS" class="flex py-4 content-end items-end w-1/12">
+			<div
+				v-if="options.length < MAX_OPTIONS"
+				class="flex py-4 content-end items-end w-1/12"
+			>
 				<button
 					class="py-3 px-4"
 					style="color: transparent; text-shadow: 0 0 0 #3b82f6"
