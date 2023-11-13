@@ -16,9 +16,17 @@ const handleClickAddOption = () => {
 
 	options.value.push(options.value.length + 1)
 }
+
+const isOpened = ref(true)
+
+const handleClickRemovePoll = () => {
+	isOpened.value = false
+}
+
 </script>
 <template>
 	<div
+		v-if="isOpened"
 		class="flex flex-col mb-4 border border-gray-400 rounded-lg overflow-hidden"
 	>
 		<div class="flex">
@@ -126,7 +134,7 @@ const handleClickAddOption = () => {
 			</div>
 		</div>
 		<div class="border-t border-gray-400">
-			<button class="py-4 w-full border text-red-500">Remove poll</button>
+			<button class="py-4 w-full border text-red-500" @click="handleClickRemovePoll">Remove poll</button>
 		</div>
 	</div>
 </template>
