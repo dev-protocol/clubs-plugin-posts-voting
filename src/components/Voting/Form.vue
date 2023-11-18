@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import {ref, onMounted, reactive} from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
 onUpdate((post) => {
 	return {
-		...post
+		...post,
 	}
 })
 
 const options = ref([
-	{id: 1, poll: undefined},
-	{id: 2, poll: undefined}
+	{ id: 1, poll: undefined },
+	{ id: 2, poll: undefined },
 ])
 const days = ref(0)
 const hour = ref(0)
@@ -29,7 +29,7 @@ const handleClickAddOption = () => {
 
 	options.value.push({
 		id: options.value.length + 1,
-		poll: undefined
+		poll: undefined,
 	})
 }
 
