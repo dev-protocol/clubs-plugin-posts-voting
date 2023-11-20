@@ -2,9 +2,53 @@
 import { ref, onMounted, reactive } from 'vue'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
+type Choice = {
+	id: number
+	message: string | undefined
+}
+
+// Choiceにvotesを追加
+type ChoiceWithVotes = Choice & {
+	votes: number
+}
+
+type Poll = {
+	choices: Choice[]
+	length: {
+		days: number
+		hours: number
+		minutes: number
+	}
+}
+
 onUpdate((post) => {
 	return {
 		...post,
+		poll: {
+			choices: [
+				{
+					id: 1,
+					message: 'Nizi',
+				},
+				{
+					id: 2,
+					message: 'SEVENTEEN',
+				},
+				{
+					id: 3,
+					message: 'TAEMIN',
+				},
+				{
+					id: 4,
+					message: 'JUNGKOOK',
+				},
+			],
+			length: {
+				days: 0,
+				hours: 0,
+				minutes: 0,
+			},
+		}
 	}
 })
 
@@ -36,7 +80,26 @@ const handleClickAddOption = () => {
 const isOpened = ref(true)
 
 const handleClickRemovePoll = () => {
-	isOpened.value = false
+	// isOpened.value = false
+
+	console.log('remove poll')
+
+	// Pollの型に変換
+	const poll: Poll = {
+		choices: options.value.map((option) => {
+			return {
+				id: option.id,
+				message: option.poll,
+			}
+		}),
+		length: {
+			days: days.value,
+			hours: hour.value,
+			minutes: minute.value,
+		},
+	}
+
+	console.log(poll)
 }
 </script>
 <template>
