@@ -22,7 +22,7 @@ type Poll = {
 }
 
 const props = defineProps<{
-  isOpened: boolean
+	isOpened: boolean
 }>()
 
 const { isOpened } = props
