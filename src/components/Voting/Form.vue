@@ -21,6 +21,14 @@ type Poll = {
 	}
 }
 
+const props = defineProps<{
+  isOpened: boolean
+}>()
+
+const { isOpened } = props
+
+console.log('isOpened', isOpened)
+
 onUpdate((post) => {
 	return {
 		...post,
@@ -48,7 +56,7 @@ onUpdate((post) => {
 				hours: 0,
 				minutes: 0,
 			},
-		}
+		},
 	}
 })
 
@@ -76,8 +84,6 @@ const handleClickAddOption = () => {
 		poll: undefined,
 	})
 }
-
-const isOpened = ref(true)
 
 const handleClickRemovePoll = () => {
 	// isOpened.value = false

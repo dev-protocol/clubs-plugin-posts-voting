@@ -8,8 +8,6 @@ const walletAddress = ref<string | undefined>('')
 const handleConnection = async () => {
 	const signer = connection().signer.value
 
-	console.log('signer', signer)
-
 	if (!signer) {
 		return
 	}
@@ -17,8 +15,6 @@ const handleConnection = async () => {
 	// get wallet address
 	const connectedAddress = await signer.getAddress()
 	walletAddress.value = connectedAddress
-
-	console.log('connectedAddress', connectedAddress)
 }
 
 onMounted(() => {
