@@ -50,7 +50,7 @@
 		"@devprotocol/clubs-plugin-posts": "^0.7.0"
 	},
 	"devDependencies": {
-		"@astrojs/svelte": "^4.0.3",
+		"@astrojs/svelte": "^5.0.0",
 		"@astrojs/tailwind": "^5.0.0",
 		"@astrojs/vue": "^3.0.0",
 		"@ava/typescript": "4.1.0",
