@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {nextTick, onMounted, onUnmounted, ref, toRefs, watch} from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
 type Choice = {
@@ -100,11 +100,11 @@ const POLL_EVENT = 'onClickPollEvent'
 const event = new CustomEvent('onClickPollEvent')
 
 const togglePollState = () => {
-  isPollOpen.value = !isPollOpen.value
+	isPollOpen.value = !isPollOpen.value
 }
 
 onMounted(() => {
-  window.addEventListener(POLL_EVENT, togglePollState)
+	window.addEventListener(POLL_EVENT, togglePollState)
 })
 
 onUnmounted(() => {
@@ -137,7 +137,6 @@ watch(isPollOpen, (isOpen) => {
 		})
 	}
 })
-
 </script>
 <template>
 	<div
