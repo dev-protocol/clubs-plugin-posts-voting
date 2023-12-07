@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, reactive } from 'vue'
+import {nextTick, onMounted, onUnmounted, ref, toRefs, watch} from 'vue'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
 type Choice = {
@@ -20,14 +20,6 @@ type Poll = {
 		minutes: number
 	}
 }
-
-const props = defineProps<{
-	isOpened: boolean
-}>()
-
-const { isOpened } = props
-
-console.log('isOpened', isOpened)
 
 onUpdate((post) => {
 	return {
@@ -85,11 +77,7 @@ const handleClickAddOption = () => {
 	})
 }
 
-const handleClickRemovePoll = () => {
-	// isOpened.value = false
-
-	console.log('remove poll')
-
+const handleSubmitPoll = () => {
 	// Pollの型に変換
 	const poll: Poll = {
 		choices: options.value.map((option) => {
@@ -104,17 +92,60 @@ const handleClickRemovePoll = () => {
 			minutes: minute.value,
 		},
 	}
-
-	console.log(poll)
 }
+
+const isPollOpen = ref(false)
+const pollOptionsRef = ref(null)
+const POLL_EVENT = 'onClickPollEvent'
+const event = new CustomEvent('onClickPollEvent')
+
+const togglePollState = () => {
+  isPollOpen.value = !isPollOpen.value
+}
+
+onMounted(() => {
+  window.addEventListener(POLL_EVENT, togglePollState)
+})
+
+onUnmounted(() => {
+	window.removeEventListener(POLL_EVENT, togglePollState)
+})
+
+const handleClickRemovePoll = () => {
+	if (isPollOpen.value === false) {
+		return
+	}
+
+	window.dispatchEvent(event)
+}
+
+watch(isPollOpen, (isOpen) => {
+	if (isOpen) {
+		nextTick(() => {
+			if (!pollOptionsRef.value) {
+				return
+			}
+
+			const firstInput = pollOptionsRef.value as HTMLElement
+			if (firstInput) {
+				const el = firstInput.querySelector('input')
+				if (!el) {
+					return
+				}
+				el.focus()
+			}
+		})
+	}
+})
+
 </script>
 <template>
 	<div
-		v-if="isOpened"
+		v-if="isPollOpen"
 		class="flex flex-col mb-4 border border-gray-400 rounded-lg overflow-hidden"
 	>
 		<div class="flex">
-			<div class="flex flex-col gap-2 py-4 flex-grow">
+			<div ref="pollOptionsRef" class="flex flex-col gap-2 py-4 flex-grow">
 				<div v-for="(option, index) in options" class="px-4">
 					<label
 						class="block mb-2 uppercase tracking-wide text-gray-400 text-xs font-bold"
