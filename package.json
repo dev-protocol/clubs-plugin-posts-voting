@@ -47,7 +47,7 @@
 	},
 	"peerDependencies": {
 		"@devprotocol/clubs-core": "^2.1.1",
-		"@devprotocol/clubs-plugin-posts": "^0.7.0"
+		"@devprotocol/clubs-plugin-posts": "^0.7.0 || ^0.8.0"
 	},
 	"devDependencies": {
 		"@astrojs/svelte": "^5.0.0",
