@@ -457,9 +457,9 @@
     vue "^3.2.0"
 
 "@devprotocol/clubs-plugin-posts@^0.8.0":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.8.2.tgz#3be0f04ff8f73c9eea9ece194abc21fd77886044"
-  integrity sha512-AHMj3yYzQVHn1FAgLtTPaljyv1MTSJMAkjJ+yFIAnmy71qvHJfPwakoo/WQ8bmMOf162LDarw9QWQTJgb/07SA==
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.8.3.tgz#18b8250f3098698da0a639838e95bf6d57d258a6"
+  integrity sha512-ahQCTlb+97oQyQmi3aYlL+skRtsSoKD45w/4CHLOS+Bgp/zPZqGQTTGF+LIHTJ2Fv2qfLDdli8jylVdG7QqLBg==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
     "@devprotocol/dev-kit" "8.6.0"
@@ -952,10 +952,10 @@
   resolved "https://registry.yarnpkg.com/@redis/bloom/-/bloom-1.2.0.tgz#d3fd6d3c0af3ef92f26767b56414a370c7b63b71"
   integrity sha512-HG2DFjYKbpNmVXsa0keLHp/3leGJz1mjh09f2RLGGLQZzSHpkmZWuwJbAvo3QcRY8p80m5+ZdXZdYOSBLlp7Cg==
 
-"@redis/client@1.5.12":
-  version "1.5.12"
-  resolved "https://registry.yarnpkg.com/@redis/client/-/client-1.5.12.tgz#4c387727992152aea443b869de0ebb697f899187"
-  integrity sha512-/ZjE18HRzMd80eXIIUIPcH81UoZpwulbo8FmbElrjPqH0QC0SeIKu1BOU49bO5trM5g895kAjhvalt5h77q+4A==
+"@redis/client@1.5.13":
+  version "1.5.13"
+  resolved "https://registry.yarnpkg.com/@redis/client/-/client-1.5.13.tgz#78786218fc1632ee4b5f7d73b8d456c95880e086"
+  integrity sha512-epkUM9D0Sdmt93/8Ozk43PNjLi36RZzG+d/T1Gdu5AI8jvghonTeLYV69WVWdilvFo+PYxbP0TZ0saMvr6nscQ==
   dependencies:
     cluster-key-slot "1.1.2"
     generic-pool "3.9.0"
@@ -2792,23 +2792,10 @@ esutils@^2.0.2, esutils@^2.0.3:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-ethers@6.9.1:
+ethers@6.9.1, ethers@^6.6.4:
   version "6.9.1"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-6.9.1.tgz#4d50c77b46b6661e00f5cc6292e6bcd933fe4cba"
   integrity sha512-kuV8fGd4/8Gj7wkurbsuUsm1DCG6N5gKGYdw3fnWG/7QGknhy1xtHD7kbkCWQAcbAYmzLCLqCPedS3FYncFkKQ==
-  dependencies:
-    "@adraffy/ens-normalize" "1.10.0"
-    "@noble/curves" "1.2.0"
-    "@noble/hashes" "1.3.2"
-    "@types/node" "18.15.13"
-    aes-js "4.0.0-beta.5"
-    tslib "2.4.0"
-    ws "8.5.0"
-
-ethers@^6.6.4:
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/ethers/-/ethers-6.9.0.tgz#a4534bdcdfde306aee94ef32f3d5c70d7e33fcb9"
-  integrity sha512-pmfNyQzc2mseLe91FnT2vmNaTt8dDzhxZ/xItAV7uGsF4dI4ek2ufMu3rAkgQETL/TIs0GS5A+U05g9QyWnv3Q==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
@@ -5110,12 +5097,12 @@ readdirp@~3.6.0:
     picomatch "^2.2.1"
 
 redis@^4.6.7:
-  version "4.6.11"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-4.6.11.tgz#fad85e104545228f212259fd557c3e4f8eafcd3d"
-  integrity sha512-kg1Lt4NZLYkAjPOj/WcyIGWfZfnyfKo1Wg9YKVSlzhFwxpFIl3LYI8BWy1Ab963LLDsTz2+OwdsesHKljB3WMQ==
+  version "4.6.12"
+  resolved "https://registry.yarnpkg.com/redis/-/redis-4.6.12.tgz#b607c93e9b0dd09e641f837092e9a68cc6ac6570"
+  integrity sha512-41Xuuko6P4uH4VPe5nE3BqXHB7a9lkFL0J29AlxKaIfD6eWO8VO/5PDF9ad2oS+mswMsfFxaM5DlE3tnXT+P8Q==
   dependencies:
     "@redis/bloom" "1.2.0"
-    "@redis/client" "1.5.12"
+    "@redis/client" "1.5.13"
     "@redis/graph" "1.1.1"
     "@redis/json" "1.0.6"
     "@redis/search" "1.1.6"
