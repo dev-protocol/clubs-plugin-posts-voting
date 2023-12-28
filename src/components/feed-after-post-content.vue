@@ -12,23 +12,13 @@ const vote = ref({
 	options: [
 		{
 			id: 1,
-			name: 'Nizi',
-			votes: 3,
+			name: '芽田水浄水場の老朽化対策工事',
+			votes: 312,
 		},
 		{
 			id: 2,
-			name: 'SEVENTEEN',
-			votes: 2,
-		},
-		{
-			id: 3,
-			name: 'TAEMIN',
-			votes: 1,
-		},
-		{
-			id: 4,
-			name: 'JUNGKOOK',
-			votes: 0,
+			name: '給水所の増強工事',
+			votes: 400,
 		},
 	],
 })

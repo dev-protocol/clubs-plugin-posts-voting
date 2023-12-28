@@ -1,4 +1,5 @@
 import type {
+	ClubsFunctionGetApiPaths,
 	ClubsFunctionGetSlots,
 	ClubsFunctionPlugin,
 	ClubsPluginMeta,
@@ -29,7 +30,21 @@ export const meta = {
 	readme: Readme,
 } satisfies ClubsPluginMeta
 
+export const getApiPaths = (async () => {
+	return [
+		{
+			paths: ['indexing'],
+			method: 'GET',
+			handler: async () => {
+				const res = 'indexing ok!!'
+				return new Response(JSON.stringify(res))
+			},
+		},
+	]
+}) satisfies ClubsFunctionGetApiPaths
+
 export default {
 	getSlots,
 	meta,
+	getApiPaths,
 } satisfies ClubsFunctionPlugin
