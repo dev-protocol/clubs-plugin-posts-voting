@@ -24,7 +24,7 @@ type Poll = {
 onUpdate((post) => {
 	return {
 		...post,
-		options:{
+		options: {
 			...post.options.filter((option) => option.key !== 'poll'),
 			key: 'poll',
 			value: {
@@ -43,8 +43,8 @@ onUpdate((post) => {
 					hours: 0,
 					minutes: 0,
 				},
-			}
-		}
+			},
+		},
 	}
 })
 

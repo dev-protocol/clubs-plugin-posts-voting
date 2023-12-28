@@ -3,7 +3,7 @@ import PollForm from './Voting/Form.vue'
 import { onMounted, ref } from 'vue'
 import IconPoll from '../assets/images/icon-poll.svg'
 import IconPollDisabled from '../assets/images/icon-poll-disabled.svg'
-import {onUpdate} from '@devprotocol/clubs-plugin-posts/plugin-helper';
+import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
 const isOpened = ref<boolean>(false)
 
@@ -20,7 +20,7 @@ const onClickImage = () => {
 onUpdate((post) => {
 	return {
 		...post,
-		options:{
+		options: {
 			...post.options.filter((option) => option.key !== 'poll'),
 			key: 'poll',
 			value: {
@@ -39,11 +39,10 @@ onUpdate((post) => {
 					hours: 0,
 					minutes: 0,
 				},
-			}
-		}
+			},
+		},
 	}
 })
-
 
 onMounted(() => {
 	console.log('onMounted!!!!!')
