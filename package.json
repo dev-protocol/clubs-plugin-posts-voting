@@ -39,7 +39,7 @@
 		"bignumber.js": "9.1.2",
 		"ethers": "6.9.1",
 		"ramda": "0.29.1",
-		"sass": "1.69.5",
+		"sass": "1.69.6",
 		"uuid": "^9.0.1"
 	},
 	"resolutions": {
