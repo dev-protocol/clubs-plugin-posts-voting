@@ -56,7 +56,7 @@
 		"@ava/typescript": "4.1.0",
 		"@devprotocol/clubs-core": "3.0.0",
 		"@devprotocol/clubs-plugin-posts": "^0.8.0",
-		"@rollup/plugin-typescript": "11.1.5",
+		"@rollup/plugin-typescript": "11.1.6",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/dotenv": "8.2.0",
 		"@types/node": "20.10.7",
