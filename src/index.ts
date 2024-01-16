@@ -40,7 +40,7 @@ export const getApiPaths = (async () => {
 			paths: ['vote'],
 			// This will be [POST] /api/devprotocol:clubs:plugin:posts:voting/vote
 			method: 'GET',
-			handler: async ({url}) => {
+			handler: async ({ url }) => {
 				//const address = url.searchParams.get('address')
 				//const postId = url.searchParams.get('postId')
 				const vote = url.searchParams.get('vote')

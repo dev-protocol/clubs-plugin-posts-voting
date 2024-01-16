@@ -50,12 +50,13 @@ const handleClickVote = async (optionId: number) => {
 	// Todo: feedIDとAddressを送らないとどれに投票するかわからないような気がする
 
 	// 投票結果をfetchする
-	const res = await fetch(`/api/devprotocol:clubs:plugin:posts:voting/vote?postId=&vote=${optionId}`)
+	const res = await fetch(
+		`/api/devprotocol:clubs:plugin:posts:voting/vote?postId=&vote=${optionId}`,
+	)
 
 	// 投票結果を取得する
 	const data = await res.json()
 	console.log(data)
-
 }
 </script>
 <template>
