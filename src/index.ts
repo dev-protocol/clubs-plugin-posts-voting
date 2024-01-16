@@ -31,12 +31,24 @@ export const meta = {
 } satisfies ClubsPluginMeta
 
 export const getApiPaths = (async () => {
+	// const dbs = options.find(
+	// 	({ key }: Readonly<{ key: string }>) => key === 'feeds',
+	// )?.value as UndefinedOr<readonly OptionsDatabase[]>
+
 	return [
 		{
-			paths: ['indexing'],
+			paths: ['vote'],
+			// This will be [POST] /api/devprotocol:clubs:plugin:posts:voting/vote
 			method: 'GET',
-			handler: async () => {
-				const res = 'indexing ok!!'
+			handler: async ({url}) => {
+				//const address = url.searchParams.get('address')
+				//const postId = url.searchParams.get('postId')
+				const vote = url.searchParams.get('vote')
+
+				const res = `voted ${vote} ok!!`
+
+				// Todo: 保存するにはどうすれば
+
 				return new Response(JSON.stringify(res))
 			},
 		},
