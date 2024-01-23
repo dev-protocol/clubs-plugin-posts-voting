@@ -18,6 +18,7 @@
 		{
 			"files": ["**/*.ts"],
 			"rules": {
+				"functional/no-conditional-statements": "off",
 				"functional/prefer-immutable-types": "off",
 				"functional/functional-parameters": "off"
 			}

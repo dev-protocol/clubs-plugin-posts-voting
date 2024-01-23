@@ -5,6 +5,8 @@ import IconPoll from '../assets/images/icon-poll.svg'
 import IconPollDisabled from '../assets/images/icon-poll-disabled.svg'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
+// const props = defineProps(['slotId', 'feedId'])
+
 const isOpened = ref<boolean>(false)
 
 // when click button, open poll form
@@ -45,8 +47,6 @@ onUpdate((post) => {
 })
 
 onMounted(() => {
-	console.log('onMounted!!!!!')
-
 	window.addEventListener('onClickPollEvent', () => {
 		window.removeEventListener('onClickPollEvent', () => {})
 

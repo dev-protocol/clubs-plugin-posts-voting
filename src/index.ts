@@ -9,6 +9,7 @@ import Readme from './readme.astro'
 import { SlotName } from '@devprotocol/clubs-plugin-posts'
 import AfterContentForm from './components/edit-after-content-form.astro'
 import AfterPostContent from './components/feed-after-post-content.astro'
+import { votingHandler } from './ApiHandler.ts'
 
 export const getSlots = (async () => {
 	return [
@@ -31,26 +32,12 @@ export const meta = {
 } satisfies ClubsPluginMeta
 
 export const getApiPaths = (async () => {
-	// const dbs = options.find(
-	// 	({ key }: Readonly<{ key: string }>) => key === 'feeds',
-	// )?.value as UndefinedOr<readonly OptionsDatabase[]>
-
 	return [
 		{
 			paths: ['vote'],
-			// This will be [POST] /api/devprotocol:clubs:plugin:posts:voting/vote
-			method: 'GET',
-			handler: async ({ url }) => {
-				//const address = url.searchParams.get('address')
-				//const postId = url.searchParams.get('postId')
-				const vote = url.searchParams.get('vote')
-
-				const res = `voted ${vote} ok!!`
-
-				// Todo: 保存するにはどうすれば
-
-				return new Response(JSON.stringify(res))
-			},
+			// This will be [POST] /api/devprotocol:clubs:plugin:posts:message
+			method: 'POST',
+			handler: votingHandler,
 		},
 	]
 }) satisfies ClubsFunctionGetApiPaths
