@@ -4,8 +4,8 @@ import { currentPost } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 import Vote from './Voting/Vote.vue'
 import Result from './Voting/Result.vue'
 import { encode, decode } from '@devprotocol/clubs-core'
-import {type UndefinedOr, whenDefined} from '@devprotocol/util-ts'
-import type {Posts} from '@devprotocol/clubs-plugin-posts';
+import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
+import type { Posts } from '@devprotocol/clubs-plugin-posts'
 
 const props = defineProps(['slotId', 'feedId'])
 
@@ -14,50 +14,47 @@ let isMasked = ref<boolean | undefined>(undefined)
 const currentPostInfo = ref<Posts>()
 
 const selectedPost = {
-	title: "aacv",
-	content: "",
+	title: 'aacv',
+	content: '',
 	options: [
 		{
-			key: "require-one-of",
-			value: []
+			key: 'require-one-of',
+			value: [],
 		},
 		{
-			key: "#images",
-			value: []
+			key: '#images',
+			value: [],
 		},
 		{
-			key: "poll",
+			key: 'poll',
 			value: {
 				options: [
 					{
 						id: 1,
-						title: "芽田水浄水場の老朽化対策工事",
-						voters: [
-							"0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB"
-						]
+						title: '芽田水浄水場の老朽化対策工事',
+						voters: ['0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB'],
 					},
 					{
 						id: 2,
-						title: "給水所の増強工事",
-						voters: []
-					}
+						title: '給水所の増強工事',
+						voters: [],
+					},
 				],
 				expiration: {
 					day: 1,
 					hours: 1,
-					minutes: 1
-				}
-			}
-		}
+					minutes: 1,
+				},
+			},
+		},
 	],
-	id: "77a72e7c-f085-5d80-a7de-2d8ff70eaffe",
-	created_by: "0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB",
-	created_at: "2023-12-07T05:49:51.636Z",
-	updated_at: "2023-12-07T05:49:51.636Z",
+	id: '77a72e7c-f085-5d80-a7de-2d8ff70eaffe',
+	created_by: '0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB',
+	created_at: '2023-12-07T05:49:51.636Z',
+	updated_at: '2023-12-07T05:49:51.636Z',
 	comments: [],
-	reactions: {}
+	reactions: {},
 }
-
 
 const vote = ref({
 	selected: 0,
@@ -95,20 +92,25 @@ const isVoted = () => {
 
 // 最新のoptionsを取得する
 type Poll = {
-		options: {
-				id: number
-				title: string
-				voters: string[]
-		}[]
-		expiration: {
-			day: number
-			hours: number
-			minutes: number
-		},
+	options: {
+		id: number
+		title: string
+		voters: string[]
+	}[]
+	expiration: {
+		day: number
+		hours: number
+		minutes: number
+	}
 }
 
 // 有効期限の時間を求める
-const getExpirationTime = (createdAt: string, day: number, hours: number, minutes:number) => {
+const getExpirationTime = (
+	createdAt: string,
+	day: number,
+	hours: number,
+	minutes: number,
+) => {
 	const createdDate = new Date(createdAt)
 	const expirationDate = new Date(
 		createdDate.getFullYear(),
@@ -122,14 +124,19 @@ const getExpirationTime = (createdAt: string, day: number, hours: number, minute
 }
 
 // 有効期限が切れているかどうかを確認する
-const isExpired = (createdAt: string, day: number, hours: number, minutes:number) => {
+const isExpired = (
+	createdAt: string,
+	day: number,
+	hours: number,
+	minutes: number,
+) => {
 	const expirationTime = getExpirationTime(createdAt, day, hours, minutes)
 	const now = new Date()
 	return now > expirationTime
 }
 
 const getLatestPosts = async (): Promise<Posts[] | undefined> => {
-	const response= await fetch(
+	const response = await fetch(
 		`/api/devprotocol:clubs:plugin:posts/${props.feedId}/message`,
 	)
 	const json = await response.json()
@@ -141,7 +148,10 @@ const getLatestPosts = async (): Promise<Posts[] | undefined> => {
 	return posts
 }
 
-const getLatestPollOption = async (latestPosts: Posts[], postId: string): Promise<Poll | undefined> => {
+const getLatestPollOption = async (
+	latestPosts: Posts[],
+	postId: string,
+): Promise<Poll | undefined> => {
 	// composedPostsの中からidがpostIdのoptionsを取得する
 	const latestOptions = latestPosts?.find((post) => post.id === postId)?.options
 	console.log('latestOptions', latestOptions)
@@ -152,24 +162,24 @@ const getLatestPollOption = async (latestPosts: Posts[], postId: string): Promis
 	// return latestPoll
 
 	return {
-			options: [
-				{
-					id: 1,
-					title: '芽田水浄水場の老朽化対策工事',
-					voters: []
-				},
-				{
-					id: 2,
-					title: '給水所の増強工事',
-					voters: []
-				}
-			],
-			expiration: {
-				day: 1,
-				hours: 1,
-				minutes: 1,
+		options: [
+			{
+				id: 1,
+				title: '芽田水浄水場の老朽化対策工事',
+				voters: [],
 			},
-		}
+			{
+				id: 2,
+				title: '給水所の増強工事',
+				voters: [],
+			},
+		],
+		expiration: {
+			day: 1,
+			hours: 1,
+			minutes: 1,
+		},
+	}
 }
 
 const isVoted2 = (poll: Poll, address: string) => {
@@ -202,7 +212,9 @@ const handleClickVote = async (postId: string, optionId: number) => {
 	}
 
 	// latestPollOptionの中からidがoptionIdのoptionを取得する
-	const selectedOption = latestPollOption?.options.find((option) => option.id === optionId)
+	const selectedOption = latestPollOption?.options.find(
+		(option) => option.id === optionId,
+	)
 
 	// selectedOptionのvotersにaddressを追加する
 	selectedOption?.voters.push(address)
@@ -218,7 +230,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 	// latestPollOptionの中からidがoptionIdのoptionを更新する
 	const updatedPoll = {
 		...latestPollOption,
-		options: updatedOptions
+		options: updatedOptions,
 	}
 
 	// latestPostsの中からidがpostIdのoptionsを取得する
@@ -240,7 +252,6 @@ const handleClickVote = async (postId: string, optionId: number) => {
 	console.log('updatedPosts', updatedPosts)
 
 	// Todo: 投票結果を保存するためにfetchする
-
 
 	// 投票結果をfetchする
 	// const requestInfo = {
@@ -281,7 +292,10 @@ const handleClickVote = async (postId: string, optionId: number) => {
 </script>
 <template>
 	<div v-if="isMasked !== true" ref="voting">
-		<section v-if="!isVoted() || !isExpired(selectedPost.created_at,)" class="voting">
+		<section
+			v-if="!isVoted() || !isExpired(selectedPost.created_at)"
+			class="voting"
+		>
 			<Vote :handleClickVote="handleClickVote" :vote="vote" />
 		</section>
 		<section v-else class="result">

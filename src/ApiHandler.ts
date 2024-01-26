@@ -8,8 +8,7 @@ export type VotingRequestJson = Readonly<{
 export const votingHandler = async ({
 	request,
 }: Readonly<{ request: Request }>) => {
-	const { feedId, vote } =
-		(await request.json()) as VotingRequestJson
+	const { feedId, vote } = (await request.json()) as VotingRequestJson
 	// const { hash, sig, feedId, vote } =
 	// 	(await request.json()) as VotingRequestJson
 	//

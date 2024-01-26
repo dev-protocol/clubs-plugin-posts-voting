@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // propsを受け取る
 const props = defineProps<{
-	handleClickVote: (postId:string, optionId: number) => void
+	handleClickVote: (postId: string, optionId: number) => void
 	vote: {
 		selected: number
 		options: {

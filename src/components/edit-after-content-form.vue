@@ -22,7 +22,6 @@ const onClickImage = () => {
 onUpdate((post) => {
 	console.log('onUpdate #2')
 
-
 	return post
 
 	// return {
