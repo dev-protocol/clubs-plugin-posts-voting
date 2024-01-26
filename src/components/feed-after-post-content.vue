@@ -7,11 +7,25 @@ import { encode, decode } from '@devprotocol/clubs-core'
 import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
 import type { Posts } from '@devprotocol/clubs-plugin-posts'
 
+type Poll = {
+	options: {
+		id: number
+		title: string
+		voters: string[]
+	}[]
+	expiration: {
+		day: number
+		hours: number
+		minutes: number
+	}
+}
+
 const props = defineProps(['slotId', 'feedId'])
 
 const voting = ref<Element>()
 let isMasked = ref<boolean | undefined>(undefined)
 const currentPostInfo = ref<Posts>()
+const currentPoll = ref<Poll>()
 
 const selectedPost = {
 	title: 'aacv',
@@ -72,10 +86,19 @@ const vote = ref({
 	],
 })
 
-onMounted(() => {
+onMounted(async () => {
 	if (!voting.value) {
 		return
 	}
+
+	// addressを取得する
+	const signer = (
+		await import('@devprotocol/clubs-core/connection')
+	).connection().signer.value
+
+	// Todo: addressを取得する
+	const address = await signer.getAddress()
+	console.log('address', address)
 
 	currentPost((data: Posts) => {
 		// 現在の投稿を取得する
@@ -84,25 +107,29 @@ onMounted(() => {
 		// 表示権限がない場合はマスクする
 		isMasked.value = data.masked
 	}, voting.value)
+
+	// 現在の投稿がない場合はreturnする
+	if (!currentPostInfo.value) {
+		return
+	}
+
+	// optionsにpollがあるかどうかを確認する
+	const poll = currentPostInfo.value.options.find((option) => option.key === 'poll')
+
+	// optionsにpollがない場合はreturnする
+	if (!poll) {
+		return
+	}
+
+	currentPoll.value = poll.value as Poll
+
+
+
 })
 
-const isVoted = () => {
-	return vote.value.selected !== 0
-}
-
-// 最新のoptionsを取得する
-type Poll = {
-	options: {
-		id: number
-		title: string
-		voters: string[]
-	}[]
-	expiration: {
-		day: number
-		hours: number
-		minutes: number
-	}
-}
+// const isVoted = () => {
+// 	return vote.value.selected !== 0
+// }
 
 // 有効期限の時間を求める
 const getExpirationTime = (
