@@ -22,30 +22,34 @@ type Poll = {
 }
 
 onUpdate((post) => {
-	return {
-		...post,
-		options: {
-			...post.options.filter((option) => option.key !== 'poll'),
-			key: 'poll',
-			value: {
-				options: [
-					{
-						id: 1,
-						message: '芽田水浄水場の老朽化対策工事',
-					},
-					{
-						id: 2,
-						message: '給水所の増強工事',
-					},
-				],
-				length: {
-					days: 0,
-					hours: 0,
-					minutes: 0,
-				},
-			},
-		},
-	}
+	console.log('onUpdate #1')
+
+	return post
+
+	// return {
+	// 	...post,
+	// 	options: {
+	// 		...post.options.filter((option) => option.key !== 'poll'),
+	// 		key: 'poll',
+	// 		value: {
+	// 			options: [
+	// 				{
+	// 					id: 1,
+	// 					message: '芽田水浄水場の老朽化対策工事',
+	// 				},
+	// 				{
+	// 					id: 2,
+	// 					message: '給水所の増強工事',
+	// 				},
+	// 			],
+	// 			length: {
+	// 				days: 0,
+	// 				hours: 0,
+	// 				minutes: 0,
+	// 			},
+	// 		},
+	// 	},
+	// }
 })
 
 const options = ref([

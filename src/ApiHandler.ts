@@ -8,8 +8,13 @@ export type VotingRequestJson = Readonly<{
 export const votingHandler = async ({
 	request,
 }: Readonly<{ request: Request }>) => {
-	const { hash, sig, feedId, vote } =
+	const { feedId, vote } =
 		(await request.json()) as VotingRequestJson
+	// const { hash, sig, feedId, vote } =
+	// 	(await request.json()) as VotingRequestJson
+	//
+	// console.log('hash', hash)
+	// console.log('sig', sig)
 
 	if (!feedId) {
 		return new Response(
@@ -23,43 +28,44 @@ export const votingHandler = async ({
 	}
 
 	// Todo: 最新の投票データを取得する。Fetch individual postでOK?
-	const response = await fetch(
-		`/api/devprotocol:clubs:plugin:posts/${feedId}/message`,
-	)
-	const latestPosts = await response.json()
+	// const response = await fetch(
+	// 	`/api/devprotocol:clubs:plugin:posts/${feedId}/message`,
+	// )
+	// const latestPosts = await response.json()
+	// console.log('latestPosts', latestPosts)
 
 	// get user address
 	// const userAddress = verifyMessage(hash, sig)
 
 	// Todo: 投票データを更新するpatchのAPIをCallする
-	const requestInfo = {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify({
-			feedId,
-			vote,
-			hash,
-			sig,
-			latestPosts,
-		}),
-	}
-
-	const res = await fetch(
-		'/api/devprotocol:clubs:plugin:posts/vote',
-		requestInfo,
-	)
-	if (!res.ok) {
-		return new Response(
-			JSON.stringify({
-				error: 'Failed to vote',
-			}),
-			{
-				status: 400,
-			},
-		)
-	}
+	// const requestInfo = {
+	// 	method: 'POST',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 	},
+	// 	body: JSON.stringify({
+	// 		feedId,
+	// 		vote,
+	// 		hash,
+	// 		sig,
+	// 		latestPosts,
+	// 	}),
+	// }
+	//
+	// const res = await fetch(
+	// 	'/api/devprotocol:clubs:plugin:posts/vote',
+	// 	requestInfo,
+	// )
+	// if (!res.ok) {
+	// 	return new Response(
+	// 		JSON.stringify({
+	// 			error: 'Failed to vote',
+	// 		}),
+	// 		{
+	// 			status: 400,
+	// 		},
+	// 	)
+	// }
 
 	// 200 OK
 	return new Response(

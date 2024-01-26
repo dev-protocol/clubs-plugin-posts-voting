@@ -2,6 +2,10 @@
 import Component from './feed-after-post-content.vue'
 
 const { slot, feedId } = Astro.props
+
+console.log('slot', slot)
+console.log('feedId', feedId)
+
 ---
 
 <Component client:load slotId={slot} feedId={feedId} />
