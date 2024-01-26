@@ -457,9 +457,9 @@
     vue "^3.2.0"
 
 "@devprotocol/clubs-plugin-posts@^0.8.0":
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.8.7.tgz#b90f84189c53f27546e16e6eb46e85c05a456041"
-  integrity sha512-EB8aZL3rRGr2ou9xf9SPrHw4ew/rXhVyebWzAK75Sum/DHPQqzulcFmD0RTqRnr4psCWzWB11E8XDEQbAKYcjQ==
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.8.9.tgz#c49993ad024888da7f31ecd7b5d2ba0a88473de9"
+  integrity sha512-Sh/0oAwxTJ8SC+jfKgBD3wyuduKgPwW8TkO/PBMmdZFp0Mu5e2GwQ19YZ0hgo7KIbMqDXeDCymN2Gohn1AZ60w==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
     "@devprotocol/dev-kit" "8.6.0"
