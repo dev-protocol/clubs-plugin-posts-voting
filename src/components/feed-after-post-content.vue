@@ -114,7 +114,9 @@ onMounted(async () => {
 	}
 
 	// optionsにpollがあるかどうかを確認する
-	const poll = currentPostInfo.value.options.find((option) => option.key === 'poll')
+	const poll = currentPostInfo.value.options.find(
+		(option) => option.key === 'poll',
+	)
 
 	// optionsにpollがない場合はreturnする
 	if (!poll) {
@@ -122,9 +124,6 @@ onMounted(async () => {
 	}
 
 	currentPoll.value = poll.value as Poll
-
-
-
 })
 
 // const isVoted = () => {
