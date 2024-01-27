@@ -4,4 +4,4 @@ import Component from './edit-after-content-form.vue'
 const { slot, feedId } = Astro.props
 ---
 
-<Component client:load slotId={slot} feedId={feedId} />
+<Component client:only="vue" slotId={slot} feedId={feedId} />

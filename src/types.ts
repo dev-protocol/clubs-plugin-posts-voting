@@ -24,8 +24,7 @@ export type TokenURIWithId = Readonly<{
 
 export interface PollOption {
 	id: number
-	title: string
-	voters: string[]
+	title: string | undefined
 }
 
 export interface Poll {

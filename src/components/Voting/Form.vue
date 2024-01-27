@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
+import type { Poll } from '../../types.ts'
 
 type Choice = {
 	id: number
@@ -12,53 +13,45 @@ type ChoiceWithVotes = Choice & {
 	votes: number
 }
 
-type Poll = {
-	choices: Choice[]
-	length: {
-		days: number
-		hours: number
-		minutes: number
-	}
-}
-
 onUpdate((post) => {
-	console.log('onUpdate #1')
+	// optionsのpollにundefinedがある場合はreturnする
+	if (options.value.some((option) => option.poll === undefined)) {
+		return post
+	}
 
-	return post
+	const poll: Poll = {
+		options: options.value.map((option) => {
+			return {
+				id: option.id,
+				title: option.poll,
+			}
+		}),
+		expiration: {
+			day: days.value,
+			hours: hour.value,
+			minutes: minute.value,
+		},
+	}
 
-	// return {
-	// 	...post,
-	// 	options: {
-	// 		...post.options.filter((option) => option.key !== 'poll'),
-	// 		key: 'poll',
-	// 		value: {
-	// 			options: [
-	// 				{
-	// 					id: 1,
-	// 					message: '芽田水浄水場の老朽化対策工事',
-	// 				},
-	// 				{
-	// 					id: 2,
-	// 					message: '給水所の増強工事',
-	// 				},
-	// 			],
-	// 			length: {
-	// 				days: 0,
-	// 				hours: 0,
-	// 				minutes: 0,
-	// 			},
-	// 		},
-	// 	},
-	// }
+	console.log('onUpdate #1', poll)
+
+	return {
+		...post,
+		options: {
+			...post.options.filter((option) => option.key !== 'poll'),
+			key: 'poll',
+			value: poll,
+		},
+	}
 })
 
 const options = ref([
 	{ id: 1, poll: undefined },
 	{ id: 2, poll: undefined },
 ])
-const days = ref(0)
-const hour = ref(0)
-const minute = ref(0)
+const days = ref<number>(1)
+const hour = ref<number>(0)
+const minute = ref<number>(0)
 
 const dayOptions = ref(Array.from({ length: 8 }, (_, index) => index))
 const hourOptions = ref(Array.from({ length: 24 }, (_, index) => index))
@@ -77,22 +70,22 @@ const handleClickAddOption = () => {
 	})
 }
 
-const handleSubmitPoll = () => {
-	// Pollの型に変換
-	const poll: Poll = {
-		choices: options.value.map((option) => {
-			return {
-				id: option.id,
-				message: option.poll,
-			}
-		}),
-		length: {
-			days: days.value,
-			hours: hour.value,
-			minutes: minute.value,
-		},
-	}
-}
+// const handleSubmitPoll = () => {
+// 	// Pollの型に変換
+// 	const poll: Poll = {
+// 		choices: options.value.map((option) => {
+// 			return {
+// 				id: option.id,
+// 				message: option.poll,
+// 			}
+// 		}),
+// 		length: {
+// 			days: days.value,
+// 			hours: hour.value,
+// 			minutes: minute.value,
+// 		},
+// 	}
+// }
 
 const isPollOpen = ref(false)
 const pollOptionsRef = ref(null)

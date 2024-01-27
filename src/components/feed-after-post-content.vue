@@ -5,7 +5,7 @@ import Vote from './Voting/Vote.vue'
 import Result from './Voting/Result.vue'
 import { encode, decode } from '@devprotocol/clubs-core'
 import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
-import type { Posts } from '@devprotocol/clubs-plugin-posts'
+import type { Posts, Reactions } from '@devprotocol/clubs-plugin-posts'
 import type { Poll } from '../types.ts'
 import { connection } from '@devprotocol/clubs-core/connection'
 
@@ -15,10 +15,16 @@ const voting = ref<Element>()
 let isMasked = ref<boolean | undefined>(undefined)
 const currentPostInfo = ref<any>()
 const currentPoll = ref<Poll>()
+const currentReaction = ref<any>()
 const address = ref<string | undefined>(undefined)
 
 // Todo: 仮の投票結果
 const selectedPost = {
+	id: '77a72e7c-f085-5d80-a7de-2d8ff70eaffe',
+	created_by: '0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB',
+	created_at: '2024-01-25T05:49:51.636Z',
+	updated_at: '2024-01-25T05:49:51.636Z',
+	comments: [],
 	title: 'aacv',
 	content: '',
 	options: [
@@ -37,28 +43,24 @@ const selectedPost = {
 					{
 						id: 1,
 						title: '芽田水浄水場の老朽化対策工事',
-						voters: ['0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB'],
 					},
 					{
 						id: 2,
 						title: '給水所の増強工事',
-						voters: ['0x1234', '0x1111'],
 					},
 				],
 				expiration: {
-					day: 2,
+					day: 1,
 					hours: 0,
 					minutes: 0,
 				},
 			},
 		},
 	],
-	id: '77a72e7c-f085-5d80-a7de-2d8ff70eaffe',
-	created_by: '0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB',
-	created_at: '2024-01-25T05:49:51.636Z',
-	updated_at: '2024-01-25T05:49:51.636Z',
-	comments: [],
-	reactions: {},
+	reactions: {
+		':poll:#1': ['0x0000', '0x1111'],
+		':poll:#2': ['0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB'],
+	},
 }
 
 connection().account.subscribe((_account: string | undefined) => {
@@ -85,7 +87,6 @@ onMounted(async () => {
 		currentPostInfo.value = selectedPost
 	}
 
-	// optionsにpollがあるかどうかを確認する
 	const pollOption = currentPostInfo.value.options.find(
 		(option) => option.key === 'poll',
 	)
@@ -95,6 +96,16 @@ onMounted(async () => {
 	}
 
 	currentPoll.value = pollOption.value as Poll
+
+	// currentPostInfo.value.reactionsの中から、keyに:poll:が含まれているものを取得する
+	currentReaction.value = Object.keys(currentPostInfo.value.reactions)
+		.filter((key) => key.includes(':poll:'))
+		.map((key) => {
+			return {
+				key,
+				value: currentPostInfo.value.reactions[key],
+			}
+		})
 })
 
 const getExpirationTime = (
@@ -174,12 +185,15 @@ const getLatestPollOption = async (
 	}
 }
 
-const isVoted = (poll: Poll, address: string | undefined) => {
+const isVoted = (reactions: Reactions[], address: string | undefined) => {
 	if (!address) {
 		return false
 	}
 
-	return poll.options.some((option) => option.voters.includes(address))
+	// reactionsの各要素のvalueにaddressが含まれているかどうかを確認する
+	return reactions.some((reaction) => {
+		return Object(reaction).value.includes(address)
+	})
 }
 
 const handleClickVote = async (postId: string, optionId: number) => {
@@ -192,7 +206,6 @@ const handleClickVote = async (postId: string, optionId: number) => {
 	if (!latestPosts) {
 		return
 	}
-	// console.log('latestPosts', latestPosts)
 
 	// optionsの最新の情報を取得する
 	const latestPollOption = await getLatestPollOption(latestPosts, postId)
@@ -287,7 +300,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 		<div v-if="currentPoll">
 			<section
 				v-if="
-					!isVoted(currentPoll, address) &&
+					!isVoted(currentReaction, address) &&
 					!isExpired(
 						currentPostInfo.created_at,
 						currentPoll.expiration.day,
@@ -300,7 +313,11 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				<Vote :handleClickVote="handleClickVote" :poll="currentPoll" />
 			</section>
 			<section v-else class="result">
-				<Result :poll="currentPoll" :address="address" />
+				<Result
+					:poll="currentPoll"
+					:reactions="currentReaction"
+					:address="address"
+				/>
 			</section>
 		</div>
 	</div>
