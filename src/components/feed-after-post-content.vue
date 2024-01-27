@@ -6,27 +6,18 @@ import Result from './Voting/Result.vue'
 import { encode, decode } from '@devprotocol/clubs-core'
 import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
 import type { Posts } from '@devprotocol/clubs-plugin-posts'
-
-type Poll = {
-	options: {
-		id: number
-		title: string
-		voters: string[]
-	}[]
-	expiration: {
-		day: number
-		hours: number
-		minutes: number
-	}
-}
+import type { Poll } from '../types.ts'
+import { connection } from '@devprotocol/clubs-core/connection'
 
 const props = defineProps(['slotId', 'feedId'])
 
 const voting = ref<Element>()
 let isMasked = ref<boolean | undefined>(undefined)
-const currentPostInfo = ref<Posts>()
+const currentPostInfo = ref<any>()
 const currentPoll = ref<Poll>()
+const address = ref<string | undefined>(undefined)
 
+// Todo: 仮の投票結果
 const selectedPost = {
 	title: 'aacv',
 	content: '',
@@ -51,39 +42,27 @@ const selectedPost = {
 					{
 						id: 2,
 						title: '給水所の増強工事',
-						voters: [],
+						voters: ['0x1234', '0x1111'],
 					},
 				],
 				expiration: {
-					day: 1,
-					hours: 1,
-					minutes: 1,
+					day: 2,
+					hours: 0,
+					minutes: 0,
 				},
 			},
 		},
 	],
 	id: '77a72e7c-f085-5d80-a7de-2d8ff70eaffe',
 	created_by: '0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB',
-	created_at: '2023-12-07T05:49:51.636Z',
-	updated_at: '2023-12-07T05:49:51.636Z',
+	created_at: '2024-01-25T05:49:51.636Z',
+	updated_at: '2024-01-25T05:49:51.636Z',
 	comments: [],
 	reactions: {},
 }
 
-const vote = ref({
-	selected: 0,
-	options: [
-		{
-			id: 1,
-			name: '芽田水浄水場の老朽化対策工事',
-			votes: 312,
-		},
-		{
-			id: 2,
-			name: '給水所の増強工事',
-			votes: 400,
-		},
-	],
+connection().account.subscribe((_account: string | undefined) => {
+	address.value = _account
 })
 
 onMounted(async () => {
@@ -91,46 +70,33 @@ onMounted(async () => {
 		return
 	}
 
-	// addressを取得する
-	const signer = (
-		await import('@devprotocol/clubs-core/connection')
-	).connection().signer.value
-
-	// Todo: addressを取得する
-	const address = await signer.getAddress()
-	console.log('address', address)
-
 	currentPost((data: Posts) => {
-		// 現在の投稿を取得する
 		currentPostInfo.value = data
 
-		// 表示権限がない場合はマスクする
 		isMasked.value = data.masked
 	}, voting.value)
 
-	// 現在の投稿がない場合はreturnする
 	if (!currentPostInfo.value) {
 		return
 	}
 
+	// Todo: idが77a72e7c-f085-5d80-a7de-2d8ff70eaffeだけ、currentPostInfoをselectedPostにする
+	if (currentPostInfo.value?.id === '77a72e7c-f085-5d80-a7de-2d8ff70eaffe') {
+		currentPostInfo.value = selectedPost
+	}
+
 	// optionsにpollがあるかどうかを確認する
-	const poll = currentPostInfo.value.options.find(
+	const pollOption = currentPostInfo.value.options.find(
 		(option) => option.key === 'poll',
 	)
 
-	// optionsにpollがない場合はreturnする
-	if (!poll) {
+	if (!pollOption) {
 		return
 	}
 
-	currentPoll.value = poll.value as Poll
+	currentPoll.value = pollOption.value as Poll
 })
 
-// const isVoted = () => {
-// 	return vote.value.selected !== 0
-// }
-
-// 有効期限の時間を求める
 const getExpirationTime = (
 	createdAt: string,
 	day: number,
@@ -208,18 +174,18 @@ const getLatestPollOption = async (
 	}
 }
 
-const isVoted2 = (poll: Poll, address: string) => {
+const isVoted = (poll: Poll, address: string | undefined) => {
+	if (!address) {
+		return false
+	}
+
 	return poll.options.some((option) => option.voters.includes(address))
 }
 
 const handleClickVote = async (postId: string, optionId: number) => {
-	// addressを取得する
-	const signer = (
-		await import('@devprotocol/clubs-core/connection')
-	).connection().signer.value
-
-	// addressを取得する
-	const address = await signer.getAddress()
+	if (!address.value) {
+		return
+	}
 
 	// latestPostsを取得する
 	const latestPosts = await getLatestPosts()
@@ -232,7 +198,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 	const latestPollOption = await getLatestPollOption(latestPosts, postId)
 
 	// 投票済みかどうかを確認する
-	if (latestPollOption && isVoted2(latestPollOption, address)) {
+	if (latestPollOption && isVoted(latestPollOption, address.value)) {
 		console.log('already voted')
 		return
 	}
@@ -318,14 +284,24 @@ const handleClickVote = async (postId: string, optionId: number) => {
 </script>
 <template>
 	<div v-if="isMasked !== true" ref="voting">
-		<section
-			v-if="!isVoted() || !isExpired(selectedPost.created_at)"
-			class="voting"
-		>
-			<Vote :handleClickVote="handleClickVote" :vote="vote" />
-		</section>
-		<section v-else class="result">
-			<Result :vote="vote" />
-		</section>
+		<div v-if="currentPoll">
+			<section
+				v-if="
+					!isVoted(currentPoll, address) &&
+					!isExpired(
+						currentPostInfo.created_at,
+						currentPoll.expiration.day,
+						currentPoll.expiration.hours,
+						currentPoll.expiration.minutes,
+					)
+				"
+				class="voting"
+			>
+				<Vote :handleClickVote="handleClickVote" :poll="currentPoll" />
+			</section>
+			<section v-else class="result">
+				<Result :poll="currentPoll" :address="address" />
+			</section>
+		</div>
 	</div>
 </template>

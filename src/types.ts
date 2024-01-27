@@ -21,3 +21,18 @@ export type TokenURIWithId = Readonly<{
 // 		key: string
 // 	}
 // }>
+
+export interface PollOption {
+	id: number
+	title: string
+	voters: string[]
+}
+
+export interface Poll {
+	options: PollOption[]
+	expiration: {
+		day: number
+		hours: number
+		minutes: number
+	}
+}

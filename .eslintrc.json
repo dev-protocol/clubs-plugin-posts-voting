@@ -20,7 +20,8 @@
 			"rules": {
 				"functional/no-conditional-statements": "off",
 				"functional/prefer-immutable-types": "off",
-				"functional/functional-parameters": "off"
+				"functional/functional-parameters": "off",
+				"functional/type-declaration-immutability": "off"
 			}
 		},
 		{
