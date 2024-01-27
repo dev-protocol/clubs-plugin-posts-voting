@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // propsを受け取る
 import type { Poll, PollOption } from '../../types.ts'
-import type {Reactions} from '@devprotocol/clubs-plugin-posts'
+import type { Reactions } from '@devprotocol/clubs-plugin-posts'
 
 const props = defineProps<{
 	poll: Poll
@@ -9,7 +9,11 @@ const props = defineProps<{
 	address: string | undefined
 }>()
 
-const isVoter = (id: number, reactions: Reactions[], address: string | undefined) => {
+const isVoter = (
+	id: number,
+	reactions: Reactions[],
+	address: string | undefined,
+) => {
 	if (address === undefined) return false
 
 	const reaction = reactions.find((reaction) => {
@@ -22,7 +26,6 @@ const isVoter = (id: number, reactions: Reactions[], address: string | undefined
 }
 
 const votes = (reactions: Reactions[], id: number) => {
-
 	// reactionsの中からkeyが`:poll:#${id}`のものを取得する
 	// そのvalueの長さを返す
 	const result = reactions.find((reaction) => {
@@ -51,7 +54,9 @@ const calculatePercent = (votes: number, total: number) => {
 				<div v-if="isVoter(option.id, reactions, address)">✓</div>
 			</div>
 			<div class="pr-2 font-bold z-10">
-				{{ calculatePercent(votes(reactions, option.id), totalVotes(reactions)) }}%
+				{{
+					calculatePercent(votes(reactions, option.id), totalVotes(reactions))
+				}}%
 			</div>
 			<div
 				class="absolute bg-blue-300 h-full rounded"

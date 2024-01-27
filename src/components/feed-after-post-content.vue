@@ -5,7 +5,7 @@ import Vote from './Voting/Vote.vue'
 import Result from './Voting/Result.vue'
 import { encode, decode } from '@devprotocol/clubs-core'
 import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
-import type {Posts, Reactions} from '@devprotocol/clubs-plugin-posts'
+import type { Posts, Reactions } from '@devprotocol/clubs-plugin-posts'
 import type { Poll } from '../types.ts'
 import { connection } from '@devprotocol/clubs-core/connection'
 
@@ -58,8 +58,8 @@ const selectedPost = {
 		},
 	],
 	reactions: {
-		":poll:#1": ['0x0000', '0x1111'],
-		":poll:#2": ['0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB']
+		':poll:#1': ['0x0000', '0x1111'],
+		':poll:#2': ['0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB'],
 	},
 }
 
@@ -98,14 +98,14 @@ onMounted(async () => {
 	currentPoll.value = pollOption.value as Poll
 
 	// currentPostInfo.value.reactionsの中から、keyに:poll:が含まれているものを取得する
-	currentReaction.value = Object.keys(currentPostInfo.value.reactions).filter(key =>
-		key.includes(':poll:')
-	).map(key => {
-		return {
-			key,
-			value: currentPostInfo.value.reactions[key]
-		}
-	})
+	currentReaction.value = Object.keys(currentPostInfo.value.reactions)
+		.filter((key) => key.includes(':poll:'))
+		.map((key) => {
+			return {
+				key,
+				value: currentPostInfo.value.reactions[key],
+			}
+		})
 })
 
 const getExpirationTime = (
@@ -313,7 +313,11 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				<Vote :handleClickVote="handleClickVote" :poll="currentPoll" />
 			</section>
 			<section v-else class="result">
-				<Result :poll="currentPoll" :reactions="currentReaction" :address="address" />
+				<Result
+					:poll="currentPoll"
+					:reactions="currentReaction"
+					:address="address"
+				/>
 			</section>
 		</div>
 	</div>
