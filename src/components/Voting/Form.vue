@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
 import { onUpdate } from '@devprotocol/clubs-plugin-posts/plugin-helper'
-import type {Poll} from '../../types.ts'
+import type { Poll } from '../../types.ts'
 
 type Choice = {
 	id: number
