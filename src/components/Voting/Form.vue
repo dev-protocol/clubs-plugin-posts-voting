@@ -33,15 +33,15 @@ onUpdate((post) => {
 		},
 	}
 
-	console.log('onUpdate #1', poll)
-
 	return {
 		...post,
-		options: {
+		options: [
 			...post.options.filter((option) => option.key !== 'poll'),
-			key: 'poll',
-			value: poll,
-		},
+			{
+				key: 'poll',
+				value: poll,
+			},
+		],
 	}
 })
 
@@ -69,23 +69,6 @@ const handleClickAddOption = () => {
 		poll: undefined,
 	})
 }
-
-// const handleSubmitPoll = () => {
-// 	// Pollの型に変換
-// 	const poll: Poll = {
-// 		choices: options.value.map((option) => {
-// 			return {
-// 				id: option.id,
-// 				message: option.poll,
-// 			}
-// 		}),
-// 		length: {
-// 			days: days.value,
-// 			hours: hour.value,
-// 			minutes: minute.value,
-// 		},
-// 	}
-// }
 
 const isPollOpen = ref(false)
 const pollOptionsRef = ref(null)

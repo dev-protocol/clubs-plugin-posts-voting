@@ -18,8 +18,8 @@ const currentPoll = ref<Poll>()
 const currentReaction = ref<any>()
 const address = ref<string | undefined>(undefined)
 
-// Todo: 仮の投票結果
-const selectedPost = {
+// Todo: delete this after testing
+const dummyPost = {
 	id: '77a72e7c-f085-5d80-a7de-2d8ff70eaffe',
 	created_by: '0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB',
 	created_at: '2024-01-25T05:49:51.636Z',
@@ -82,13 +82,13 @@ onMounted(async () => {
 		return
 	}
 
-	// Todo: idが77a72e7c-f085-5d80-a7de-2d8ff70eaffeだけ、currentPostInfoをselectedPostにする
+	// Todo: set dummyPost to currentPostInfo.value
 	if (currentPostInfo.value?.id === '77a72e7c-f085-5d80-a7de-2d8ff70eaffe') {
-		currentPostInfo.value = selectedPost
+		currentPostInfo.value = dummyPost
 	}
 
 	const pollOption = currentPostInfo.value.options.find(
-		(option) => option.key === 'poll',
+		(option: any) => option.key === 'poll',
 	)
 
 	if (!pollOption) {
@@ -97,7 +97,6 @@ onMounted(async () => {
 
 	currentPoll.value = pollOption.value as Poll
 
-	// currentPostInfo.value.reactionsの中から、keyに:poll:が含まれているものを取得する
 	currentReaction.value = Object.keys(currentPostInfo.value.reactions)
 		.filter((key) => key.includes(':poll:'))
 		.map((key) => {
@@ -126,7 +125,6 @@ const getExpirationTime = (
 	return expirationDate
 }
 
-// 有効期限が切れているかどうかを確認する
 const isExpired = (
 	createdAt: string,
 	day: number,
@@ -138,161 +136,64 @@ const isExpired = (
 	return now > expirationTime
 }
 
-const getLatestPosts = async (): Promise<Posts[] | undefined> => {
-	const response = await fetch(
-		`/api/devprotocol:clubs:plugin:posts/${props.feedId}/message`,
-	)
-	const json = await response.json()
-
-	const posts: Posts[] | undefined = whenDefined(json.contents, (data) => {
-		return decode(data)
-	})
-
-	return posts
-}
-
-const getLatestPollOption = async (
-	latestPosts: Posts[],
-	postId: string,
-): Promise<Poll | undefined> => {
-	// composedPostsの中からidがpostIdのoptionsを取得する
-	const latestOptions = latestPosts?.find((post) => post.id === postId)?.options
-	console.log('latestOptions', latestOptions)
-
-	// latestOptionsからkeyがpollのものを取得する
-	// const latestPoll = latestOptions?.find((option) => option.key === 'poll')
-
-	// return latestPoll
-
-	return {
-		options: [
-			{
-				id: 1,
-				title: '芽田水浄水場の老朽化対策工事',
-				voters: [],
-			},
-			{
-				id: 2,
-				title: '給水所の増強工事',
-				voters: [],
-			},
-		],
-		expiration: {
-			day: 1,
-			hours: 1,
-			minutes: 1,
-		},
-	}
-}
-
 const isVoted = (reactions: Reactions[], address: string | undefined) => {
 	if (!address) {
 		return false
 	}
 
-	// reactionsの各要素のvalueにaddressが含まれているかどうかを確認する
 	return reactions.some((reaction) => {
 		return Object(reaction).value.includes(address)
 	})
 }
 
 const handleClickVote = async (postId: string, optionId: number) => {
-	if (!address.value) {
+	const signer = (
+		await import('@devprotocol/clubs-core/connection')
+	).connection().signer.value
+
+	if (!signer) {
 		return
 	}
 
-	// latestPostsを取得する
-	const latestPosts = await getLatestPosts()
-	if (!latestPosts) {
+	const pollId = `:poll:#${optionId}`
+	const hash = encode(`${postId}-${pollId}`)
+
+	let sig: UndefinedOr<string>
+	try {
+		sig = await signer.signMessage(hash)
+	} catch (error) {
+		console.error('error occurred while signing message:', error)
 		return
 	}
 
-	// optionsの最新の情報を取得する
-	const latestPollOption = await getLatestPollOption(latestPosts, postId)
-
-	// 投票済みかどうかを確認する
-	if (latestPollOption && isVoted(latestPollOption, address.value)) {
-		console.log('already voted')
-		return
+	const requestInfo = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			postId,
+			pollId,
+			hash,
+			sig,
+		}),
 	}
 
-	// latestPollOptionの中からidがoptionIdのoptionを取得する
-	const selectedOption = latestPollOption?.options.find(
-		(option) => option.id === optionId,
+	const res = await fetch(
+		`/api/devprotocol:clubs:plugin:posts/${props.feedId}/reactions`,
+		requestInfo,
 	)
 
-	// selectedOptionのvotersにaddressを追加する
-	selectedOption?.voters.push(address)
-
-	// latestPollOptionの中からidがoptionIdのoptionを更新する
-	const updatedOptions = latestPollOption?.options.map((option) => {
-		if (option.id === optionId) {
-			return selectedOption
-		}
-		return option
-	})
-
-	// latestPollOptionの中からidがoptionIdのoptionを更新する
-	const updatedPoll = {
-		...latestPollOption,
-		options: updatedOptions,
-	}
-
-	// latestPostsの中からidがpostIdのoptionsを取得する
-	const updatedPosts = latestPosts.map((post) => {
-		if (post.id === postId) {
-			return {
-				...post,
-				options: [
-					...post.options.filter((option) => option.key !== 'poll'),
-					{
-						key: 'poll',
-						value: updatedPoll,
-					},
-				],
+	if (res.status === 200) {
+		// Todo: CurrentReactionを更新する（動作確認必要）
+		currentReaction.value.find((reaction: Reactions) => {
+			if (reaction.key === pollId) {
+				reaction.value.push(address.value)
 			}
-		}
-		return post
-	})
-	console.log('updatedPosts', updatedPosts)
-
-	// Todo: 投票結果を保存するためにfetchする
-
-	// 投票結果をfetchする
-	// const requestInfo = {
-	// 	method: 'POST',
-	// 	headers: {
-	// 		'Content-Type': 'application/json',
-	// 	},
-	// 	body: JSON.stringify({
-	// 		feedId: props.feedId,
-	// 		vote: optionId,
-	// 		hash,
-	// 		sig,
-	// 	}),
-	// }
-	//
-	// const res = await fetch(
-	// 	`/api/devprotocol:clubs:plugin:posts:voting/vote`,
-	// 	requestInfo,
-	// )
-	//
-	// if (res.status === 200) {
-	// 	// 投票結果を取得する
-	// 	const data = await res.json()
-	// 	console.log(data)
-	//
-	// 	vote.value.selected = optionId
-	// 	vote.value.options = vote.value.options.map((option) => {
-	// 		if (option.id === optionId) {
-	// 			option.votes += 1
-	// 		}
-	//
-	// 		return option
-	// 	})
-	// } else {
-	// 	console.error('Error occurred while posting voting:', res)
-	// }
+		})
+	} else {
+		console.error('Error occurred while posting voting:', res)
+	}
 }
 </script>
 <template>
