@@ -1,4 +1,5 @@
 import type {
+	ClubsFunctionGetApiPaths,
 	ClubsFunctionGetSlots,
 	ClubsFunctionPlugin,
 	ClubsPluginMeta,
@@ -8,6 +9,7 @@ import Readme from './readme.astro'
 import { SlotName } from '@devprotocol/clubs-plugin-posts'
 import AfterContentForm from './components/edit-after-content-form.astro'
 import AfterPostContent from './components/feed-after-post-content.astro'
+import { votingHandler } from './ApiHandler.ts'
 
 export const getSlots = (async () => {
 	return [
@@ -29,7 +31,19 @@ export const meta = {
 	readme: Readme,
 } satisfies ClubsPluginMeta
 
+export const getApiPaths = (async () => {
+	return [
+		{
+			paths: ['vote'],
+			// This will be [POST] /api/devprotocol:clubs:plugin:posts:message
+			method: 'POST',
+			handler: votingHandler,
+		},
+	]
+}) satisfies ClubsFunctionGetApiPaths
+
 export default {
 	getSlots,
 	meta,
+	getApiPaths,
 } satisfies ClubsFunctionPlugin

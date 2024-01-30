@@ -38,7 +38,7 @@ export default () =>
 		propertyAddress: '0xE59fEDaBB0F79b0EC605737805a9125cd8d87B1f',
 		chainId: 80001,
 		rpcUrl: 'https://polygon-mumbai-bor.publicnode.com',
-		adminRolePoints: 50,
+		adminRolePoints: 0,
 		plugins: [
 			{
 				id: 'example-theme',
