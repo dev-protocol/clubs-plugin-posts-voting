@@ -57,7 +57,10 @@ onMounted(async () => {
 		})
 })
 
-const isOwner = (createdBy: string | undefined, address: string | undefined): boolean => {
+const isOwner = (
+	createdBy: string | undefined,
+	address: string | undefined,
+): boolean => {
 	if (!createdBy || !address) {
 		return false
 	}
@@ -162,7 +165,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 		<div v-if="currentPoll">
 			<section
 				v-if="
-				  !isOwner(currentPostInfo.created_by, address) &&
+					!isOwner(currentPostInfo.created_by, address) &&
 					!isVoted(currentReaction, address) &&
 					!isExpired(
 						currentPostInfo.created_at,

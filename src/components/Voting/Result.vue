@@ -61,10 +61,12 @@ const calculatePercent = (votes: number, total: number) => {
 			</div>
 			<div
 				class="absolute bg-blue-300 h-full rounded"
-				:style="`width: ${calculatePercent(
-					votes(reactions, option.id),
-					totalVotes(reactions),
-				) || 1}%`"
+				:style="`width: ${
+					calculatePercent(
+						votes(reactions, option.id),
+						totalVotes(reactions),
+					) || 1
+				}%`"
 			></div>
 		</div>
 	</div>
