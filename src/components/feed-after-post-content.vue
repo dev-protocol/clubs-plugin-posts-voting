@@ -18,51 +18,6 @@ const currentPoll = ref<Poll>()
 const currentReaction = ref<any>()
 const address = ref<string | undefined>(undefined)
 
-// Todo: delete this after testing
-const dummyPost = {
-	id: '77a72e7c-f085-5d80-a7de-2d8ff70eaffe',
-	created_by: '0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB',
-	created_at: '2024-01-25T05:49:51.636Z',
-	updated_at: '2024-01-25T05:49:51.636Z',
-	comments: [],
-	title: 'aacv',
-	content: '',
-	options: [
-		{
-			key: 'require-one-of',
-			value: [],
-		},
-		{
-			key: '#images',
-			value: [],
-		},
-		{
-			key: 'poll',
-			value: {
-				options: [
-					{
-						id: 1,
-						title: '芽田水浄水場の老朽化対策工事',
-					},
-					{
-						id: 2,
-						title: '給水所の増強工事',
-					},
-				],
-				expiration: {
-					day: 1,
-					hours: 0,
-					minutes: 0,
-				},
-			},
-		},
-	],
-	reactions: {
-		':poll:#1': ['0x0000', '0x1111'],
-		':poll:#2': ['0x262A038D0bc05B4112c7D58BBfd407810bcfE2aB'],
-	},
-}
-
 connection().account.subscribe((_account: string | undefined) => {
 	address.value = _account
 })
@@ -80,11 +35,6 @@ onMounted(async () => {
 
 	if (!currentPostInfo.value) {
 		return
-	}
-
-	// Todo: set dummyPost to currentPostInfo.value
-	if (currentPostInfo.value?.id === '77a72e7c-f085-5d80-a7de-2d8ff70eaffe') {
-		currentPostInfo.value = dummyPost
 	}
 
 	const pollOption = currentPostInfo.value.options.find(
@@ -173,7 +123,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 		},
 		body: JSON.stringify({
 			postId,
-			pollId,
+			data: pollId,
 			hash,
 			sig,
 		}),
@@ -185,12 +135,16 @@ const handleClickVote = async (postId: string, optionId: number) => {
 	)
 
 	if (res.status === 200) {
-		// Todo: CurrentReactionを更新する（動作確認必要）
-		currentReaction.value.find((reaction: Reactions) => {
-			if (reaction.key === pollId) {
-				reaction.value.push(address.value)
-			}
-		})
+		currentReaction.value = [
+			...currentReaction.value,
+			{
+				key: pollId,
+				value: currentReaction.value[pollId]
+					? [...currentReaction.value[pollId], address.value]
+					: [address.value],
+			},
+		]
+
 	} else {
 		console.error('Error occurred while posting voting:', res)
 	}
@@ -211,7 +165,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				"
 				class="voting"
 			>
-				<Vote :handleClickVote="handleClickVote" :poll="currentPoll" />
+				<Vote :handleClickVote="handleClickVote" :poll="currentPoll" :postId="currentPostInfo.id" />
 			</section>
 			<section v-else class="result">
 				<Result

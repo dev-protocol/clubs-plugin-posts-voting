@@ -51,13 +51,13 @@ export default () =>
 						key: 'feeds',
 						value: [
 							{
-								id: 'default',
+								id: 'default-2',
 								database: {
-									type: 'encoded:redis',
-									key: `posts::${uuidv5(
-										toUtf8Bytes('EXAMPLE'),
+									type: 'documents:redis',
+									key: uuidv5(
+										toUtf8Bytes('default-2'),
 										uuidv5('EXAMPLE_NAMESPACE', uuidv5.URL),
-									)}`, // > posts::694666bb-b2ec-542b-a5d6-65b470e5c494
+									), // > posts::694666bb-b2ec-542b-a5d6-65b470e5c494
 								},
 							},
 						],
