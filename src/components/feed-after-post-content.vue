@@ -8,7 +8,13 @@ import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
 import type { Posts, Reactions } from '@devprotocol/clubs-plugin-posts'
 import type { Poll } from '../types.ts'
 import { connection } from '@devprotocol/clubs-core/connection'
-import {isExpired, isOwner, isVoted, remainingTime, totalVotes} from './Voting/utils.ts';
+import {
+	isExpired,
+	isOwner,
+	isVoted,
+	remainingTime,
+	totalVotes,
+} from './Voting/utils.ts'
 
 const props = defineProps(['slotId', 'feedId'])
 
@@ -143,11 +149,16 @@ const handleClickVote = async (postId: string, optionId: number) => {
 			</section>
 			<div class="flex justify-start items-center gap-2">
 				<p>{{ totalVotes(currentReaction) }} votes</p>
-				<p>{{ remainingTime(
-					currentPostInfo.created_at,
-					currentPoll.expiration.day,
-					currentPoll.expiration.hours,
-					currentPoll.expiration.minutes) }}</p>
+				<p>
+					{{
+						remainingTime(
+							currentPostInfo.created_at,
+							currentPoll.expiration.day,
+							currentPoll.expiration.hours,
+							currentPoll.expiration.minutes,
+						)
+					}}
+				</p>
 			</div>
 		</div>
 	</div>

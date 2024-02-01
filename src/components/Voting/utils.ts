@@ -1,4 +1,4 @@
-import type {Reactions} from '@devprotocol/clubs-plugin-posts';
+import type { Reactions } from '@devprotocol/clubs-plugin-posts'
 
 export const isOwner = (
 	createdBy: string | undefined,
@@ -11,7 +11,10 @@ export const isOwner = (
 	return createdBy === address
 }
 
-export const isVoted = (reactions: Reactions[], address: string | undefined) => {
+export const isVoted = (
+	reactions: Reactions[],
+	address: string | undefined,
+) => {
 	if (!address) {
 		return false
 	}
@@ -56,8 +59,12 @@ export const remainingTime = (
 	const remaining = expirationTime.getTime() - now.getTime()
 
 	const dayRemaining = Math.floor(remaining / (1000 * 60 * 60 * 24))
-	const hourRemaining = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-	const minuteRemaining = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60))
+	const hourRemaining = Math.floor(
+		(remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+	)
+	const minuteRemaining = Math.floor(
+		(remaining % (1000 * 60 * 60)) / (1000 * 60),
+	)
 
 	if (dayRemaining > 0) {
 		return `${dayRemaining} days left`
@@ -67,7 +74,7 @@ export const remainingTime = (
 		return `${minuteRemaining} minutes left`
 	}
 
-	return ""
+	return ''
 }
 
 export const isExpired = (
