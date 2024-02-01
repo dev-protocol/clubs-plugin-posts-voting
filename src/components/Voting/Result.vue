@@ -43,6 +43,7 @@ const totalVotes = (reactions: Reactions[]) => {
 }
 
 const calculatePercent = (votes: number, total: number) => {
+	if (total === 0) return 0
 	return Math.round((votes / total) * 100)
 }
 </script>
@@ -63,7 +64,7 @@ const calculatePercent = (votes: number, total: number) => {
 				:style="`width: ${calculatePercent(
 					votes(reactions, option.id),
 					totalVotes(reactions),
-				)}%`"
+				) || 1}%`"
 			></div>
 		</div>
 	</div>
