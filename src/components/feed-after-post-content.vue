@@ -144,7 +144,6 @@ const handleClickVote = async (postId: string, optionId: number) => {
 					: [address.value],
 			},
 		]
-
 	} else {
 		console.error('Error occurred while posting voting:', res)
 	}
@@ -165,7 +164,11 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				"
 				class="voting"
 			>
-				<Vote :handleClickVote="handleClickVote" :poll="currentPoll" :postId="currentPostInfo.id" />
+				<Vote
+					:handleClickVote="handleClickVote"
+					:poll="currentPoll"
+					:postId="currentPostInfo.id"
+				/>
 			</section>
 			<section v-else class="result">
 				<Result
