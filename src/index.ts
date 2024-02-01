@@ -31,7 +31,8 @@ export const meta: ClubsPluginMeta = {
 	id: 'devprotocol:clubs:plugin:posts:voting',
 	displayName: 'Voting',
 	category: ClubsPluginCategory.Uncategorized,
-	description: 'Voting is a voting application that prioritizes ease of use. Users can create their own polls, allowing up to a maximum of four options. Once the voting period is over, the results can be immediately checked.',
+	description:
+		'Voting is a voting application that prioritizes ease of use. Users can create their own polls, allowing up to a maximum of four options. Once the voting period is over, the results can be immediately checked.',
 	previewImages: [
 		ImageVotingPreview01,
 		ImageVotingPreview02,
