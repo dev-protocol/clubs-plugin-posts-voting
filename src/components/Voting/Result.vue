@@ -2,6 +2,7 @@
 // propsを受け取る
 import type { Poll, PollOption } from '../../types.ts'
 import type { Reactions } from '@devprotocol/clubs-plugin-posts'
+import { totalVotes } from './utils'
 
 const props = defineProps<{
 	poll: Poll
@@ -35,13 +36,6 @@ const votes = (reactions: Reactions[], id: number) => {
 	return result ? result : 0
 }
 
-const totalVotes = (reactions: Reactions[]) => {
-	// reactionsの各要素のvalueの長さを足し合わせる
-	return reactions.reduce((acc, reaction) => {
-		return acc + Object(reaction).value.length
-	}, 0)
-}
-
 const calculatePercent = (votes: number, total: number) => {
 	if (total === 0) return 0
 	return Math.round((votes / total) * 100)
@@ -70,5 +64,4 @@ const calculatePercent = (votes: number, total: number) => {
 			></div>
 		</div>
 	</div>
-	<p>{{ totalVotes(reactions) }} votes</p>
 </template>

@@ -8,6 +8,7 @@ import { type UndefinedOr, whenDefined } from '@devprotocol/util-ts'
 import type { Posts, Reactions } from '@devprotocol/clubs-plugin-posts'
 import type { Poll } from '../types.ts'
 import { connection } from '@devprotocol/clubs-core/connection'
+import {isExpired, isOwner, isVoted, remainingTime, totalVotes} from './Voting/utils.ts';
 
 const props = defineProps(['slotId', 'feedId'])
 
@@ -56,56 +57,6 @@ onMounted(async () => {
 			}
 		})
 })
-
-const isOwner = (
-	createdBy: string | undefined,
-	address: string | undefined,
-): boolean => {
-	if (!createdBy || !address) {
-		return false
-	}
-
-	return createdBy === address
-}
-
-const getExpirationTime = (
-	createdAt: string,
-	day: number,
-	hours: number,
-	minutes: number,
-) => {
-	const createdDate = new Date(createdAt)
-	const expirationDate = new Date(
-		createdDate.getFullYear(),
-		createdDate.getMonth(),
-		createdDate.getDate() + day,
-		createdDate.getHours() + hours,
-		createdDate.getMinutes() + minutes,
-	)
-
-	return expirationDate
-}
-
-const isExpired = (
-	createdAt: string,
-	day: number,
-	hours: number,
-	minutes: number,
-) => {
-	const expirationTime = getExpirationTime(createdAt, day, hours, minutes)
-	const now = new Date()
-	return now > expirationTime
-}
-
-const isVoted = (reactions: Reactions[], address: string | undefined) => {
-	if (!address) {
-		return false
-	}
-
-	return reactions.some((reaction) => {
-		return Object(reaction).value.includes(address)
-	})
-}
 
 const handleClickVote = async (postId: string, optionId: number) => {
 	const signer = (
@@ -174,12 +125,13 @@ const handleClickVote = async (postId: string, optionId: number) => {
 						currentPoll.expiration.minutes,
 					)
 				"
-				class="voting"
+				class="mb-0.5 voting"
 			>
 				<Vote
 					:handleClickVote="handleClickVote"
 					:poll="currentPoll"
 					:postId="currentPostInfo.id"
+					:createdAt="currentPostInfo.created_at"
 				/>
 			</section>
 			<section v-else class="result">
@@ -189,6 +141,14 @@ const handleClickVote = async (postId: string, optionId: number) => {
 					:address="address"
 				/>
 			</section>
+			<div class="flex justify-start items-center gap-2">
+				<p>{{ totalVotes(currentReaction) }} votes</p>
+				<p>{{ remainingTime(
+					currentPostInfo.created_at,
+					currentPoll.expiration.day,
+					currentPoll.expiration.hours,
+					currentPoll.expiration.minutes) }}</p>
+			</div>
 		</div>
 	</div>
 </template>
