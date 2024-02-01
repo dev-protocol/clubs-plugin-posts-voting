@@ -33,7 +33,7 @@ onUpdate((post) => {
 		},
 	}
 
-	return {
+	const editedPost = {
 		...post,
 		options: [
 			...post.options.filter((option) => option.key !== 'poll'),
@@ -43,6 +43,8 @@ onUpdate((post) => {
 			},
 		],
 	}
+
+	return editedPost
 })
 
 const options = ref([

@@ -5,6 +5,7 @@ import type { Poll } from '../../types.ts'
 const props = defineProps<{
 	handleClickVote: (postId: string, optionId: number) => void
 	poll: Poll
+	postId: string
 }>()
 </script>
 <template>
@@ -14,7 +15,7 @@ const props = defineProps<{
 				class="w-full text-blue-500 font-bold border border-blue-500 rounded-xl"
 				@click="
 					() => {
-						handleClickVote('77a72e7c-f085-5d80-a7de-2d8ff70eaffe', option.id)
+						handleClickVote(postId, option.id)
 					}
 				"
 			>
