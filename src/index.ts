@@ -24,10 +24,17 @@ export const getSlots = (async () => {
 	]
 }) satisfies ClubsFunctionGetSlots
 
-export const meta = {
+export const meta: ClubsPluginMeta = {
 	id: 'devprotocol:clubs:plugin:posts:voting',
 	displayName: 'Voting',
 	category: ClubsPluginCategory.Uncategorized,
+	description:
+		'Voting is a voting application that prioritizes ease of use. Users can create their own polls, allowing up to a maximum of four options. Once the voting period is over, the results can be immediately checked.',
+	previewImages: [
+		'./assets/images/voting-preview01.png',
+		'./assets/images/voting-preview02.png',
+		'./assets/images/voting-preview03.png',
+	],
 	readme: Readme,
 } satisfies ClubsPluginMeta
 
