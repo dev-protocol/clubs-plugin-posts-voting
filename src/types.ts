@@ -29,6 +29,7 @@ export interface PollOption {
 
 export interface Poll {
 	options: PollOption[]
+	publication?: boolean
 	expiration: {
 		day: number
 		hours: number

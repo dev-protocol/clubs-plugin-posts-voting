@@ -15,6 +15,7 @@ import {
 	remainingTime,
 	totalVotes,
 } from './Voting/utils.ts'
+import Unpublished from './Voting/Unpublished.vue';
 
 const props = defineProps(['slotId', 'feedId'])
 
@@ -141,7 +142,18 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				/>
 			</section>
 			<section v-else class="result">
+				<Unpublished v-if="
+					!isOwner(currentPostInfo.created_by, address) &&
+					!currentPoll.publication &&
+					!isExpired(
+							currentPostInfo.created_at,
+							currentPoll.expiration.day,
+							currentPoll.expiration.hours,
+							currentPoll.expiration.minutes,
+					)
+				" />
 				<Result
+					v-else
 					:poll="currentPoll"
 					:reactions="currentReaction"
 					:address="address"
