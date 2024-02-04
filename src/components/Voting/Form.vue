@@ -26,6 +26,7 @@ onUpdate((post) => {
 				title: option.poll,
 			}
 		}),
+		publication: publication.value,
 		expiration: {
 			day: days.value,
 			hours: hour.value,
@@ -54,6 +55,7 @@ const options = ref([
 const days = ref<number>(1)
 const hour = ref<number>(0)
 const minute = ref<number>(0)
+const publication = ref(true)
 
 const dayOptions = ref(Array.from({ length: 8 }, (_, index) => index))
 const hourOptions = ref(Array.from({ length: 24 }, (_, index) => index))
@@ -148,6 +150,17 @@ watch(isPollOpen, (isOpen) => {
 					➕
 				</button>
 			</div>
+		</div>
+		<div class="py-4 px-4 border-t border-gray-400">
+			<p class="mb-2 text-gray-400 font-bold">
+				Immediate Result Publication Settings
+			</p>
+			<label class="relative inline-flex items-center cursor-pointer">
+				<input v-model="publication" type="checkbox" class="sr-only peer" />
+				<span
+					class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+				></span>
+			</label>
 		</div>
 		<div class="py-4 px-4 border-t border-gray-400">
 			<p class="text-gray-400 font-bold">Poll length</p>

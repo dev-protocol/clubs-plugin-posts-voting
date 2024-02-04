@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // propsを受け取る
-import type { Poll, PollOption } from '../../types.ts'
+import type { Poll } from '../../types.ts'
 import type { Reactions } from '@devprotocol/clubs-plugin-posts'
 import { totalVotes } from './utils'
 
