@@ -3,7 +3,10 @@ import PollForm from './Voting/Form.vue'
 import { onMounted, ref } from 'vue'
 import IconPoll from '../assets/images/icon-poll.svg'
 import IconPollDisabled from '../assets/images/icon-poll-disabled.svg'
-import {onPostCreated, onUpdate} from '@devprotocol/clubs-plugin-posts/plugin-helper'
+import {
+	onPostCreated,
+	onUpdate,
+} from '@devprotocol/clubs-plugin-posts/plugin-helper'
 
 // const props = defineProps(['slotId', 'feedId'])
 
@@ -27,10 +30,9 @@ onMounted(() => {
 	})
 })
 
-onPostCreated((post: any)=>{
+onPostCreated((post: any) => {
 	isOpened.value = false
 })
-
 </script>
 <template>
 	<PollForm />

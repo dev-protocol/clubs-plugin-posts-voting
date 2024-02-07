@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
-import {onPostCreated, onUpdate} from '@devprotocol/clubs-plugin-posts/plugin-helper'
+import {
+	onPostCreated,
+	onUpdate,
+} from '@devprotocol/clubs-plugin-posts/plugin-helper'
 import type { Poll } from '../../types.ts'
 
 type Choice = {
@@ -91,7 +94,7 @@ onUnmounted(() => {
 	window.removeEventListener(POLL_EVENT, togglePollState)
 })
 
-onPostCreated((post: any)=>{
+onPostCreated((post: any) => {
 	isPollOpen.value = false
 
 	days.value = 1
