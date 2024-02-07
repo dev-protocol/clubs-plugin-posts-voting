@@ -40,9 +40,9 @@ export const getExpirationTime = (
 	const expirationDate = new Date(
 		createdDate.getFullYear(),
 		createdDate.getMonth(),
-		createdDate.getDate() + day,
-		createdDate.getHours() + hours,
-		createdDate.getMinutes() + minutes,
+		Number(createdDate.getDate()) + Number(day),
+		Number(createdDate.getHours()) + Number(hours),
+		Number(createdDate.getMinutes()) + Number(minutes),
 	)
 
 	return expirationDate
