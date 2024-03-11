@@ -40,9 +40,9 @@ onUpdate((post) => {
 	const editedPost = {
 		...post,
 		options: [
-			...post.options.filter((option) => option.key !== 'poll'),
+			...post.options.filter((option) => option.key !== '#poll'),
 			{
-				key: 'poll',
+				key: '#poll',
 				value: poll,
 			},
 		],
