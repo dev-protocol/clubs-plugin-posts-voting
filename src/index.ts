@@ -6,7 +6,7 @@ import type {
 } from '@devprotocol/clubs-core'
 import { ClubsPluginCategory } from '@devprotocol/clubs-core'
 import { SlotName } from '@devprotocol/clubs-plugin-posts'
-import { votingHandler } from './ApiHandler.ts'
+import { votingHandler } from './ApiHandler'
 import Icon from './assets/images/Voting.png'
 import Preview1 from './assets/images/voting-preview01.png'
 import Preview2 from './assets/images/voting-preview02.png'
