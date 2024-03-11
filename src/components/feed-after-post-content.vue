@@ -46,7 +46,7 @@ onMounted(async () => {
 	}
 
 	const pollOption = currentPostInfo.value.options.find(
-		(option: any) => option.key === 'poll',
+		(option: any) => option.key === '#poll',
 	)
 
 	if (!pollOption) {
