@@ -482,9 +482,9 @@
     vue "^3.2.0"
 
 "@devprotocol/clubs-plugin-posts@^0.15.0":
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.15.1.tgz#c48d89945e8a8cd22932ca2cb29a45ef0cd94611"
-  integrity sha512-Eq13bZvYe3DymKKubrvzmKcFMx5wO7jPbG6kIWlQdTdQEMin1HRllZX1qpQawKZbcVdjsCj9NaSC16AT1NRi9g==
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.15.3.tgz#b61f2198b82b2443c3112b9b4ebb5178ac7aea83"
+  integrity sha512-ln3EpuQe72PLb/+oEYTZgUQPrePE0E3aM1HFO7odjxa8Av1lmmCnmDfhav+YlETt7FuoWg8XoQEMdz9w4lLk7Q==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
     "@devprotocol/dev-kit" "8.6.0"
@@ -495,11 +495,10 @@
     ethers "^6.6.4"
     marked "12.0.1"
     nanoid "^5.0.6"
-    p-queue "^8.0.1"
     photoswipe "5.4.3"
     ramda "0.29.1"
     redis "^4.6.7"
-    sass "1.71.1"
+    sass "1.72.0"
     uuid "^9.0.0"
 
 "@devprotocol/dev-kit@8.6.0":
@@ -2642,9 +2641,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 dompurify@^3.0.5:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.9.tgz#b3f362f24b99f53498c75d43ecbd784b0b3ad65e"
-  integrity sha512-uyb4NDIvQ3hRn6NiC+SIFaP4mJ/MdXlvtunaqK9Bn6dD3RuB/1S/gasEjDHD8eiaqdSael2vBv+hOs7Y+jhYOQ==
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.11.tgz#c163f5816eaac6aeef35dae2b77fca0504564efe"
+  integrity sha512-Fan4uMuyB26gFV3ovPoEoQbxRRPfTu3CvImyZnhGq5fsIEO+gEFLp45ISFt+kQBWsK5ulDdT0oV28jS1UrwQLg==
 
 dompurify@^3.0.6:
   version "3.0.8"
@@ -5450,15 +5449,6 @@ sass-formatter@^0.7.6:
   integrity sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==
   dependencies:
     suf-log "^2.5.3"
-
-sass@1.71.1:
-  version "1.71.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.71.1.tgz#dfb09c63ce63f89353777bbd4a88c0a38386ee54"
-  integrity sha512-wovtnV2PxzteLlfNzbgm1tFXPLoZILYAMJtvoXXkD7/+1uP41eKkIt1ypWq5/q2uT94qHjXehEYfmjKOvjL9sg==
-  dependencies:
-    chokidar ">=3.0.0 <4.0.0"
-    immutable "^4.0.0"
-    source-map-js ">=0.6.2 <2.0.0"
 
 sass@1.72.0:
   version "1.72.0"
