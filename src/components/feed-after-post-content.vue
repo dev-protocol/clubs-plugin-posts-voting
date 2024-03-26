@@ -39,30 +39,30 @@ onMounted(async () => {
 		currentPostInfo.value = data
 
 		isMasked.value = data.masked
+
+		if (!currentPostInfo.value) {
+			return
+		}
+
+		const pollOption = currentPostInfo.value.options.find(
+			(option: any) => option.key === '#poll',
+		)
+
+		if (!pollOption) {
+			return
+		}
+
+		currentPoll.value = pollOption.value as Poll
+
+		currentReaction.value = Object.keys(currentPostInfo.value.reactions)
+			.filter((key) => key.includes(':poll:'))
+			.map((key) => {
+				return {
+					key,
+					value: currentPostInfo.value.reactions[key],
+				}
+			})
 	}, voting.value)
-
-	if (!currentPostInfo.value) {
-		return
-	}
-
-	const pollOption = currentPostInfo.value.options.find(
-		(option: any) => option.key === '#poll',
-	)
-
-	if (!pollOption) {
-		return
-	}
-
-	currentPoll.value = pollOption.value as Poll
-
-	currentReaction.value = Object.keys(currentPostInfo.value.reactions)
-		.filter((key) => key.includes(':poll:'))
-		.map((key) => {
-			return {
-				key,
-				value: currentPostInfo.value.reactions[key],
-			}
-		})
 })
 
 const handleClickVote = async (postId: string, optionId: number) => {
