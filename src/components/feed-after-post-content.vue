@@ -120,9 +120,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 </script>
 <template>
 	<div v-if="isMasked !== true" ref="voting">
-		sssssssfoo
 		<div v-if="currentPoll">
-			aaaaaaa
 			<section
 				v-if="
 					!isOwner(currentPostInfo.created_by, address) &&
