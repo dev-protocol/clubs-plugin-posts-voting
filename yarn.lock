@@ -481,10 +481,10 @@
     svelte "^4.0.0"
     vue "^3.2.0"
 
-"@devprotocol/clubs-plugin-posts@^0.15.3":
-  version "0.15.3"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.15.3.tgz#b61f2198b82b2443c3112b9b4ebb5178ac7aea83"
-  integrity sha512-ln3EpuQe72PLb/+oEYTZgUQPrePE0E3aM1HFO7odjxa8Av1lmmCnmDfhav+YlETt7FuoWg8XoQEMdz9w4lLk7Q==
+"@devprotocol/clubs-plugin-posts@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.16.0.tgz#bdb4c070a17fc065d264e328759b49646c50e2c6"
+  integrity sha512-oP2DVX4b5OfP2OBl0+1DZGE/eIMh+y7V+Arag1hfX2dX2z9mqiK8aHf3qquwTPwrEuLybmufbe9QMQWssUVhAg==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
     "@devprotocol/dev-kit" "8.6.0"
