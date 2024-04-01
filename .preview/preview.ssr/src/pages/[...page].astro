@@ -1,10 +1,9 @@
 ---
-import type { InferGetStaticPropsType } from 'astro'
 import {
 	type ClubsFunctionFactoryOptions,
 	type ClubsFunctionPageFactoryResult,
-	type ClubsGetStaticPathsItem,
 	pageFactory,
+	routerFactory,
 } from '@devprotocol/clubs-core'
 import config from '../../../config'
 import plugins from '../../../plugins'
@@ -16,15 +15,10 @@ const options = {
 	plugins,
 } satisfies ClubsFunctionFactoryOptions
 
-const { getStaticPaths } = pageFactory(
-	options,
-) as ClubsFunctionPageFactoryResult<typeof options>
+const { getStaticPaths } = pageFactory(options)
 
-const path = (await getStaticPaths()).find(
-	({ params }) => params.page === page,
-) as
-	| ClubsGetStaticPathsItem<InferGetStaticPropsType<typeof getStaticPaths>>
-	| undefined
+const router = routerFactory(await getStaticPaths(), (p) => p.params.page)
+const path = router(page)
 
 const Content = path?.props.component
 const Layout = path?.props.layout
