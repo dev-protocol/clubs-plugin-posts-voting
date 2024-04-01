@@ -482,9 +482,9 @@
     vue "^3.2.0"
 
 "@devprotocol/clubs-plugin-posts@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.17.0.tgz#b9522ffdec21430c0dc410f8745fded706ad47c2"
-  integrity sha512-pWmQFDbhVjD+iNG8n6gb1urjH3N7LEuSfAAe85yJL0SXEKN0zcvoPfVWlYarhn7bZA4BLlDH0UYnIO7yMv58FA==
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.17.1.tgz#dbc067068d64fc0aad5e8e07042358456fc94120"
+  integrity sha512-zPshc9bQgue9Gtpuerq7wVvtYtbq7e7qKERf42NXEXq4MehZaMTS4L/Ez9vCbAtpUSUaOtW55b2xzBu9AAD+6g==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
     "@devprotocol/dev-kit" "8.6.0"
@@ -2709,9 +2709,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 dompurify@^3.0.5:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.9.tgz#b3f362f24b99f53498c75d43ecbd784b0b3ad65e"
-  integrity sha512-uyb4NDIvQ3hRn6NiC+SIFaP4mJ/MdXlvtunaqK9Bn6dD3RuB/1S/gasEjDHD8eiaqdSael2vBv+hOs7Y+jhYOQ==
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.11.tgz#c163f5816eaac6aeef35dae2b77fca0504564efe"
+  integrity sha512-Fan4uMuyB26gFV3ovPoEoQbxRRPfTu3CvImyZnhGq5fsIEO+gEFLp45ISFt+kQBWsK5ulDdT0oV28jS1UrwQLg==
 
 dompurify@^3.0.6:
   version "3.0.8"
