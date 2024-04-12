@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import {
 	onPostCreated,
 	onUpdate,
 } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 import type { Poll } from '../../types.ts'
+import { Strings } from '../i18n'
+import { i18nFactory } from '@devprotocol/clubs-core'
+
+const i18nBase = i18nFactory(Strings)
+let i18n = i18nBase(['en'])
 
 type Choice = {
 	id: number
@@ -87,6 +92,7 @@ const togglePollState = () => {
 }
 
 onMounted(() => {
+	i18n = i18nBase(navigator.languages)
 	window.addEventListener(POLL_EVENT, togglePollState)
 })
 
@@ -169,7 +175,7 @@ watch(isPollOpen, (isOpen) => {
 		</div>
 		<div class="py-4 px-4 border-t border-gray-400">
 			<p class="mb-2 text-gray-400 font-bold">
-				Immediate Result Publication Settings
+				{{ i18n('ImmediateResultPublicationSettings') }}
 			</p>
 			<label class="relative inline-flex items-center cursor-pointer">
 				<input v-model="publication" type="checkbox" class="sr-only peer" />
@@ -263,7 +269,7 @@ watch(isPollOpen, (isOpen) => {
 				class="py-4 w-full border text-red-500"
 				@click="handleClickRemovePoll"
 			>
-				Remove poll
+				{{ i18n('RemovePoll') }}
 			</button>
 		</div>
 	</div>
