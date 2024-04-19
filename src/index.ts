@@ -1,11 +1,12 @@
 import type {
-	ClubsFunctionGetApiPaths, ClubsFunctionGetPagePaths,
+	ClubsFunctionGetApiPaths,
+	ClubsFunctionGetPagePaths,
 	ClubsFunctionGetSlots,
 	ClubsFunctionPlugin,
 	ClubsPluginMeta,
 } from '@devprotocol/clubs-core'
 import { ClubsPluginCategory } from '@devprotocol/clubs-core'
-import {type OptionsDatabase, SlotName} from '@devprotocol/clubs-plugin-posts'
+import { type OptionsDatabase, SlotName } from '@devprotocol/clubs-plugin-posts'
 import { votingHandler } from './ApiHandler'
 import Icon from './assets/images/Voting.png'
 import Preview1 from './assets/images/voting-preview01.png'
@@ -14,7 +15,7 @@ import Preview3 from './assets/images/voting-preview03.png'
 import Readme from './readme.astro'
 import AfterContentForm from './components/edit-after-content-form.astro'
 import AfterPostContent from './components/feed-after-post-content.astro'
-import type {UndefinedOr} from '@devprotocol/util-ts';
+import type { UndefinedOr } from '@devprotocol/util-ts'
 import Votes from './Pages/Votes.astro'
 
 export const getSlots = (async () => {
@@ -54,14 +55,13 @@ export const getApiPaths = (async () => {
 
 const getPagePaths = (async (
 	options,
-	{propertyAddress, adminRolePoints, rpcUrl},
-	{getPluginConfigById}
+	{ propertyAddress, adminRolePoints, rpcUrl },
+	{ getPluginConfigById },
 ) => {
-
 	const [postsPlugin] = getPluginConfigById('devprotocol:clubs:plugin:posts')
 
 	const feeds = postsPlugin?.options?.find(
-		({key}: Readonly<{ readonly key: string }>) => key === 'feeds',
+		({ key }: Readonly<{ key: string }>) => key === 'feeds',
 	)?.value as UndefinedOr<readonly OptionsDatabase[]>
 
 	const props = {
@@ -72,13 +72,15 @@ const getPagePaths = (async (
 		feeds,
 	}
 
-	return [{
-		paths: ["votes"],
-		component: Votes,
-		props: {
-			...props
+	return [
+		{
+			paths: ['votes'],
+			component: Votes,
+			props: {
+				...props,
+			},
 		},
-	}]
+	]
 }) satisfies ClubsFunctionGetPagePaths
 
 export default {

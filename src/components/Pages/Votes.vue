@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-
-import type {Option} from '../../types.ts';
-import type {OptionsDatabase} from '@devprotocol/clubs-plugin-posts';
-import {decode} from '@devprotocol/clubs-core';
-import {onMounted, ref} from 'vue';
+import type { Option } from '../../types.ts'
+import type { OptionsDatabase } from '@devprotocol/clubs-plugin-posts'
+import { decode } from '@devprotocol/clubs-core'
+import { onMounted, ref } from 'vue'
 
 type Props = {
 	options: Option[]
@@ -16,7 +15,7 @@ const error = ref('')
 const isLoading = ref(true)
 
 const fetchPolls = async () => {
-  // これでPollのFeedをとってくる
+	// これでPollのFeedをとってくる
 	// http://localhost:4321/api/devprotocol:clubs:plugin:posts/default-2/search/has:option/%23poll
 
 	const url = new URL(
@@ -46,7 +45,6 @@ onMounted(async () => {
 	await fetchPolls()
 	console.log('mounted', polls.value)
 })
-
 </script>
 
 <template>
