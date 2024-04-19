@@ -1,0 +1,21 @@
+---
+import {Option} from '../types';
+import {ClubsPropsPages, Membership} from '@devprotocol/clubs-core';
+import Votes from '../components/Pages/Votes.vue';
+import type {OptionsDatabase} from '@devprotocol/clubs-plugin-posts';
+
+interface Props extends ClubsPropsPages {
+	options: Option[]
+	propertyAddress: string
+	adminRolePoints: number
+	rpcUrl: string
+	feeds: OptionsDatabase[]
+}
+
+const {
+	options,
+	feeds
+} = Astro.props
+---
+
+<Votes client:load options={options} feeds={feeds} />
