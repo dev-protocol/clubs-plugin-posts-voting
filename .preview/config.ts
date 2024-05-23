@@ -51,7 +51,21 @@ export default () =>
 						key: 'feeds',
 						value: [
 							{
-								id: 'default-2',
+								id: 'default-2-id',
+								title: 'default-2-title',
+								slugs: 'default-2-slug',
+								database: {
+									type: 'documents:redis',
+									key: uuidv5(
+										toUtf8Bytes('default-2'),
+										uuidv5('EXAMPLE_NAMESPACE', uuidv5.URL),
+									), // > posts::694666bb-b2ec-542b-a5d6-65b470e5c494
+								},
+							},
+							{
+								id: 'default-3',
+								title: '',
+								slugs: 'default-3-slug',
 								database: {
 									type: 'documents:redis',
 									key: uuidv5(
