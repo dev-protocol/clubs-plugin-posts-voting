@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { ZeroAddress } from 'ethers'
 import { Avatar } from '@boringer-avatars/vue3'
-import {fetchProfile} from '@devprotocol/clubs-core';
+import { fetchProfile } from '@devprotocol/clubs-core'
 
 type Props = {
 	address: string

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { Option } from '../../types.ts'
 import type { OptionsDatabase, Posts } from '@devprotocol/clubs-plugin-posts'
-import {type ClubsProfile, decode} from '@devprotocol/clubs-core'
+import { type ClubsProfile, decode } from '@devprotocol/clubs-core'
 import { onMounted, ref } from 'vue'
-import Profile from '../Votes/Profile.vue';
-import IconLock from '../../assets/images/icon-lock.png';
-import {remark} from 'remark';
+import Profile from '../Votes/Profile.vue'
+import IconLock from '../../assets/images/icon-lock.png'
+import { remark } from 'remark'
 import strip from 'strip-markdown'
 
 type Props = {
@@ -27,8 +27,8 @@ type Polls = {
 type PostsPlus = Posts & {
 	image: string
 	profile: Promise<{
-		readonly profile: ClubsProfile | undefined;
-		readonly error: Error | undefined;
+		readonly profile: ClubsProfile | undefined
+		readonly error: Error | undefined
 	}>
 	stripedMarkdown: string
 }
@@ -48,34 +48,37 @@ const fetchPolls = async (feed: OptionsDatabase): Promise<Polls> => {
 	const json = await res.json()
 
 	return {
-		title: title ?　title : feedId.value,
-		values: decode(json.contents)
+		title: title ? title : feedId.value,
+		values: decode(json.contents),
 	}
 }
 
 onMounted(async () => {
-	await Promise.all(feeds.map(async (feed) => {
-		const data = await fetchPolls(feed)
+	await Promise.all(
+		feeds.map(async (feed) => {
+			const data = await fetchPolls(feed)
 
-		data.values = data.values.map((post) => {
-			post.updated_at = new Date(post.updated_at).toLocaleString('ja-JP')
+			data.values = data.values.map((post) => {
+				post.updated_at = new Date(post.updated_at).toLocaleString('ja-JP')
 
-			const images = post.options.find((item) => item.key === '#images')
-			if (images && images.value.length > 0) {
-				post.image = images.value[0]
-			}
+				const images = post.options.find((item) => item.key === '#images')
+				if (images && images.value.length > 0) {
+					post.image = images.value[0]
+				}
 
-			remark()
-				.use(strip)
-				.process(post.content).then((text) => {
+				remark()
+					.use(strip)
+					.process(post.content)
+					.then((text) => {
 						post.stripedMarkdown = text.toString()
-				})
+					})
 
-			return post
-		})
+				return post
+			})
 
-		polls.value = [...polls.value, data]
-	}))
+			polls.value = [...polls.value, data]
+		}),
+	)
 })
 </script>
 
@@ -98,7 +101,10 @@ onMounted(async () => {
 							<p v-if="true" class="flex-grow flex-wrap text-lg truncate">
 								{{ post.stripedMarkdown }}
 							</p>
-							<div v-else class="flex flex-col justify-center items-center flex-grow p-2 bg-gray-200 rounded">
+							<div
+								v-else
+								class="flex flex-col justify-center items-center flex-grow p-2 bg-gray-200 rounded"
+							>
 								<img
 									class="mb-1 w-5"
 									:src="IconLock.src"
@@ -109,14 +115,16 @@ onMounted(async () => {
 						</div>
 					</div>
 					<figure v-if="!isMasked && post.image">
-						<img :src="post.image" class="rounded max-w-20 max-h-20 object-cover object-center" alt="post image" />
+						<img
+							:src="post.image"
+							class="rounded max-w-20 max-h-20 object-cover object-center"
+							alt="post image"
+						/>
 					</figure>
 				</div>
 			</a>
 			<div v-if="poll.length < 1" class="mb-4 p-2 bg-gray-100 rounded">
-				<p class="w-full text-gray-400 text-center">
-					Empty :)
-				</p>
+				<p class="w-full text-gray-400 text-center">Empty :)</p>
 			</div>
 		</div>
 	</div>

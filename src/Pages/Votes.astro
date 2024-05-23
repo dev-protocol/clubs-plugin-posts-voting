@@ -16,4 +16,9 @@ interface Props extends ClubsPropsPages {
 const { options, feeds, postsPluginId } = Astro.props
 ---
 
-<Votes client:load options={options} feeds={feeds} postsPluginId={postsPluginId} />
+<Votes
+	client:load
+	options={options}
+	feeds={feeds}
+	postsPluginId={postsPluginId}
+/>
