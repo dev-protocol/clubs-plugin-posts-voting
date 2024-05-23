@@ -10,9 +10,10 @@ interface Props extends ClubsPropsPages {
 	adminRolePoints: number
 	rpcUrl: string
 	feeds: OptionsDatabase[]
+	postsPluginId: string
 }
 
-const { options, feeds } = Astro.props
+const { options, feeds, postsPluginId } = Astro.props
 ---
 
-<Votes client:load options={options} feeds={feeds} />
+<Votes client:load options={options} feeds={feeds} postsPluginId={postsPluginId} />

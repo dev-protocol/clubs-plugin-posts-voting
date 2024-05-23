@@ -70,6 +70,7 @@ const getPagePaths = (async (
 		adminRolePoints,
 		rpcUrl,
 		feeds,
+		postsPluginId: postsPlugin?.id,
 	}
 
 	return [
