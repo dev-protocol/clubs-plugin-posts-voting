@@ -98,7 +98,10 @@ onMounted(async () => {
 						<p class="mb-1 text-xs text-gray-400">{{ post.updated_at }}</p>
 						<div class="flex justify-between gap-2">
 							<Profile :address="post.created_by" />
-							<p v-if="true" class="flex-grow flex-wrap text-lg truncate">
+							<p
+								v-if="!post.masked"
+								class="flex-grow flex-wrap text-lg truncate"
+							>
 								{{ post.stripedMarkdown }}
 							</p>
 							<div
@@ -114,7 +117,7 @@ onMounted(async () => {
 							</div>
 						</div>
 					</div>
-					<figure v-if="!isMasked && post.image">
+					<figure v-if="!post.masked && post.image">
 						<img
 							:src="post.image"
 							class="rounded max-w-20 max-h-20 object-cover object-center"
