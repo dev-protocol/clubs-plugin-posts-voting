@@ -45,4 +45,8 @@ export const Strings = {
 		en: 'Post',
 		ja: '投稿',
 	},
+	Choice: {
+		en: 'Choice',
+		ja: '選択肢',
+	},
 } satisfies ClubsI18nParts

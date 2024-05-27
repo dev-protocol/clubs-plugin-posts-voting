@@ -152,7 +152,8 @@ watch(isPollOpen, (isOpen) => {
 						class="block mb-2 uppercase tracking-wide text-gray-400 text-xs font-bold"
 						for="grid-last-name"
 					>
-						Choice {{ option.id }} {{ index > 1 ? '(optional)' : '' }}
+						{{ i18n('Choice') }} {{ option.id }}
+						{{ index > 1 ? '(optional)' : '' }}
 					</label>
 					<input
 						v-model="option.poll"
