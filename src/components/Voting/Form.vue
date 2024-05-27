@@ -185,10 +185,10 @@ watch(isPollOpen, (isOpen) => {
 			</label>
 		</div>
 		<div class="py-4 px-4 border-t border-gray-400">
-			<p class="text-gray-400 font-bold">Poll length</p>
+			<p class="text-gray-400 font-bold">{{ i18n('PollLength') }}</p>
 			<div class="flex justify-between gap-6">
 				<div class="w-1/3">
-					<label class="text-gray-400">Days</label>
+					<label class="text-gray-400">{{ i18n('Days') }}</label>
 					<div class="relative">
 						<select
 							v-model="days"
@@ -213,7 +213,7 @@ watch(isPollOpen, (isOpen) => {
 					</div>
 				</div>
 				<div class="w-1/3">
-					<label class="text-gray-400">Hours</label>
+					<label class="text-gray-400">{{ i18n('Hours') }}</label>
 					<div class="relative">
 						<select
 							v-model="hour"
@@ -238,7 +238,7 @@ watch(isPollOpen, (isOpen) => {
 					</div>
 				</div>
 				<div class="w-1/3">
-					<label class="text-gray-400">Minutes</label>
+					<label class="text-gray-400">{{ i18n('Minutes') }}</label>
 					<div class="relative">
 						<select
 							v-model="minute"
