@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { Strings } from '../i18n'
 import { i18nFactory } from '@devprotocol/clubs-core'
 
 const i18nBase = i18nFactory(Strings)
-let i18n = i18nBase(['en'])
+let i18n = ref<ReturnType<typeof i18nBase>>(i18nBase(['en']))
 
 onMounted(() => {
-	i18n = i18nBase(navigator.languages)
+	i18n.value = i18nBase(navigator.languages)
 })
 </script>
+
 <template>
 	<div class="flex flex-col justify-center items-center p-4">
 		<div class="px-8 py-4 border border-gray-400 text-center">
