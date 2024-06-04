@@ -67,14 +67,14 @@ export const remainingTime = (
 	)
 
 	if (dayRemaining > 0) {
-		return `${dayRemaining} days left`
+		return [dayRemaining.toString(), 'days']
 	} else if (hourRemaining > 0) {
-		return `${hourRemaining} hours left`
+		return [hourRemaining.toString(), 'hours']
 	} else if (minuteRemaining > 0) {
-		return `${minuteRemaining} minutes left`
+		return [minuteRemaining.toString(), 'minutes']
 	}
 
-	return ''
+	return ['', 'none']
 }
 
 export const isExpired = (

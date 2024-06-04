@@ -16,6 +16,8 @@ import {
 	totalVotes,
 } from './Voting/utils.ts'
 import Unpublished from './Voting/Unpublished.vue'
+import { Strings } from './i18n'
+import { i18nFactory } from '@devprotocol/clubs-core'
 
 const props = defineProps(['slotId', 'feedId'])
 
@@ -26,11 +28,16 @@ const currentPoll = ref<Poll>()
 const currentReaction = ref<any>()
 const address = ref<string | undefined>(undefined)
 
+const i18nBase = i18nFactory(Strings)
+let i18n = ref<ReturnType<typeof i18nBase>>(i18nBase(['en']))
+
 connection().account.subscribe((_account: string | undefined) => {
 	address.value = _account
 })
 
 onMounted(async () => {
+	i18n.value = i18nBase(navigator.languages)
+
 	if (!voting.value) {
 		return
 	}
@@ -162,14 +169,17 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				/>
 			</section>
 			<div class="flex justify-start items-center gap-2">
-				<p>{{ totalVotes(currentReaction) }} votes</p>
+				<p>{{ totalVotes(currentReaction) }} {{ i18n('Votes') }}</p>
 				<p>
 					{{
-						remainingTime(
-							currentPostInfo.created_at,
-							currentPoll.expiration.day,
-							currentPoll.expiration.hours,
-							currentPoll.expiration.minutes,
+						i18n(
+							'Remaining',
+							remainingTime(
+								currentPostInfo.created_at,
+								currentPoll.expiration.day,
+								currentPoll.expiration.hours,
+								currentPoll.expiration.minutes,
+							),
 						)
 					}}
 				</p>

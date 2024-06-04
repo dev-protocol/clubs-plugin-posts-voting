@@ -49,4 +49,24 @@ export const Strings = {
 		en: 'Choice',
 		ja: '選択肢',
 	},
+	Votes: {
+		en: 'Votes',
+		ja: 'Votes',
+	},
+	Remaining: {
+		en: ([value, type]) => {
+			if (value && Number(value) > 0) {
+				return `${value} ${type} left.`
+			}
+
+			return ''
+		},
+		ja: ([value, type]) => {
+			if (value && Number(value) > 0) {
+				return `${value} ${type} left.`
+			}
+
+			return ''
+		},
+	},
 } satisfies ClubsI18nParts
