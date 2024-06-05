@@ -27,15 +27,15 @@ export const Strings = {
 	},
 	Unpublished: {
 		en: 'Poll Results are Unpublished',
-		ja: '投票結果は表示されません',
+		ja: '投票結果を表示できません。',
 	},
 	UnpublishedDetail: {
 		en: 'At the moment, the poll results are set to unpublished.',
-		ja: '投票結果は非表示に設定されています',
+		ja: '投票期間中の結果表示が非表示に設定されています。',
 	},
 	PleaseWait: {
 		en: 'Please wait until the voting period has ended.',
-		ja: '投票期間の終了までお待ちください',
+		ja: '投票期間の終了までお待ちください。',
 	},
 	LimitedAccess: {
 		en: 'Limited access',
@@ -51,20 +51,24 @@ export const Strings = {
 	},
 	Votes: {
 		en: 'Votes',
-		ja: 'Votes',
+		ja: '投票数',
 	},
 	Remaining: {
 		en: ([value, type]) => {
+			if (type === 'none') return ''
+
 			if (value && Number(value) > 0) {
-				return `${value} ${type} left.`
+				return `${value} ${type} left`
 			}
 
 			return ''
 		},
 		ja: ([value, type]) => {
-			if (value && Number(value) > 0) {
-				return `${value} ${type} left.`
-			}
+			if (type === 'none') return ''
+
+			if (type === 'days') return `${value} ${type} left`
+			if (type === 'hours') return `${value} ${type} left`
+			if (type === 'minutes') return `${value} ${type} left`
 
 			return ''
 		},
