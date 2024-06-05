@@ -169,7 +169,7 @@ const handleClickVote = async (postId: string, optionId: number) => {
 				/>
 			</section>
 			<div class="flex justify-start items-center gap-2">
-				<p>{{ totalVotes(currentReaction) }} {{ i18n('Votes') }}</p>
+				<p>{{ i18n('Votes', [totalVotes(currentReaction).toString()]) }}</p>
 				<p>
 					{{
 						i18n(

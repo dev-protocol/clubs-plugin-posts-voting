@@ -50,8 +50,8 @@ export const Strings = {
 		ja: '選択肢',
 	},
 	Votes: {
-		en: 'Votes',
-		ja: '投票数',
+		en: ([votes]) => `${votes} votes`,
+		ja: ([votes]) => `投票数 ${votes}`,
 	},
 	Remaining: {
 		en: ([value, type]) => {
