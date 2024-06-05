@@ -66,9 +66,9 @@ export const Strings = {
 		ja: ([value, type]) => {
 			if (type === 'none') return ''
 
-			if (type === 'days') return `${value} ${type} left`
-			if (type === 'hours') return `${value} ${type} left`
-			if (type === 'minutes') return `${value} ${type} left`
+			if (value && Number(value) > 0) {
+				return `終了まであと ${value} ${type === 'days' ? '日' : type === 'hours' ? '時間' : type === 'minutes' ? '分' : ''}`
+			}
 
 			return ''
 		},
