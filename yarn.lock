@@ -474,9 +474,9 @@
     vue "^3.2.0"
 
 "@devprotocol/clubs-plugin-posts@^0.20.0":
-  version "0.20.11"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.20.11.tgz#5c3ee1e2792f7a78aa384b2213c7f5fa1158c3bc"
-  integrity sha512-6nCT0fSh98nXrbafmo/jwMVLUgsK4VxYRx8NkzMYtmQJPcpgvZkRw8bwYL6EqTmifgRd4URcRtyMKK05J9/L0A==
+  version "0.20.12"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.20.12.tgz#baa38495f8f310259ee7203c3bee06cef3fcb25b"
+  integrity sha512-Nqmy+x5RLpZY7UWRFJBnVYu8lKcm3nhH2YVgTjeb5D7uLdoK5t0/BCTtT6rW7tqrf3u0rxH9sWtElzjpeOkfnw==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
     "@devprotocol/dev-kit" "8.6.1"
