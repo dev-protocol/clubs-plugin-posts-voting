@@ -17,7 +17,6 @@ onSetup((post) => {
 
 	const poll: Poll = {
 		options: options.value.map((option) => {
-
 			return {
 				id: option.id,
 				title: option.poll,
