@@ -2,7 +2,7 @@
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import {
 	onPostCreated,
-	onUpdate,
+	onSetup,
 } from '@devprotocol/clubs-plugin-posts/plugin-helper'
 import type { Poll } from '../../types.ts'
 import { Strings } from '../i18n'
@@ -11,24 +11,13 @@ import { i18nFactory } from '@devprotocol/clubs-core'
 const i18nBase = i18nFactory(Strings)
 let i18n = ref<ReturnType<typeof i18nBase>>(i18nBase(['en']))
 
-type Choice = {
-	id: number
-	message: string | undefined
-}
-
-// Choiceにvotesを追加
-type ChoiceWithVotes = Choice & {
-	votes: number
-}
-
-onUpdate((post) => {
-	// optionsのpollにundefinedがある場合はreturnする
-	if (options.value.some((option) => option.poll === undefined)) {
-		return post
-	}
+onSetup((post) => {
+	// Remove options that have not been filled in
+	options.value = options.value.filter((option) => option.poll !== undefined)
 
 	const poll: Poll = {
 		options: options.value.map((option) => {
+
 			return {
 				id: option.id,
 				title: option.poll,
