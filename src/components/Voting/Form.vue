@@ -34,10 +34,12 @@ onSetup((post) => {
 		...post,
 		options: [
 			...post.options.filter((option) => option.key !== '#poll'),
-			{
-				key: '#poll',
-				value: poll,
-			},
+			poll.options.length > 0
+				? {
+						key: '#poll',
+						value: poll,
+					}
+				: undefined,
 		],
 	}
 
