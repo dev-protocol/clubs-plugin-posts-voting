@@ -474,12 +474,12 @@
     vue "^3.2.0"
 
 "@devprotocol/clubs-plugin-posts@^0.20.0":
-  version "0.20.14"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.20.14.tgz#889c6b485ce52cf49450362163de2174c57c1383"
-  integrity sha512-zpgNi2wls95fE5ZfULsy6hAemy5zxg0uLNVpPIyNFM7l04eFgXxJO8+GHfd+u/vAp/vbyHETvvLUHMGQGks/Eg==
+  version "0.20.15"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-posts/-/clubs-plugin-posts-0.20.15.tgz#d0abf7f009985260410d881213044f27563f4b48"
+  integrity sha512-2YxDtdEggE2DK9wbex5PsYZwRaHSSGsHnwAmOXF7sOeKJAXFglO3mqGtgX/u5ZEsA6KKBSbUQI6aga+MyNVs/g==
   dependencies:
     "@boringer-avatars/vue3" "^0.2.1"
-    "@devprotocol/dev-kit" "8.6.1"
+    "@devprotocol/dev-kit" "8.6.2"
     "@devprotocol/util-ts" "4.0.0"
     bignumber.js "9.1.2"
     dayjs "^1.11.8"
@@ -492,16 +492,6 @@
     redis "^4.6.7"
     sass "1.77.6"
     uuid "^10.0.0"
-
-"@devprotocol/dev-kit@8.6.1":
-  version "8.6.1"
-  resolved "https://registry.yarnpkg.com/@devprotocol/dev-kit/-/dev-kit-8.6.1.tgz#035612f441f1d8aa837342787f792985cd2ce7f6"
-  integrity sha512-zsT0IAMEBVLwbuf6l6zWwMqhvIl+KIx+3B03szN0pZKuPx1/tcT3R70ldi6oe/+0uZdFnK2a0cENedV93SxMFw==
-  dependencies:
-    "@devprotocol/util-ts" "4.0.0"
-    bignumber.js "9.1.2"
-    js-base64 "^3.7.2"
-    ramda "^0.30.0"
 
 "@devprotocol/dev-kit@8.6.2":
   version "8.6.2"
@@ -1093,10 +1083,10 @@
   resolved "https://registry.yarnpkg.com/@redis/bloom/-/bloom-1.2.0.tgz#d3fd6d3c0af3ef92f26767b56414a370c7b63b71"
   integrity sha512-HG2DFjYKbpNmVXsa0keLHp/3leGJz1mjh09f2RLGGLQZzSHpkmZWuwJbAvo3QcRY8p80m5+ZdXZdYOSBLlp7Cg==
 
-"@redis/client@1.5.16":
-  version "1.5.16"
-  resolved "https://registry.yarnpkg.com/@redis/client/-/client-1.5.16.tgz#1d5919077a06a4b935b0e4bef9e036eef1a10371"
-  integrity sha512-X1a3xQ5kEMvTib5fBrHKh6Y+pXbeKXqziYuxOUo1ojQNECg4M5Etd1qqyhMap+lFUOAh8S7UYevgJHOm4A+NOg==
+"@redis/client@1.5.17":
+  version "1.5.17"
+  resolved "https://registry.yarnpkg.com/@redis/client/-/client-1.5.17.tgz#44d179f2b5b542754d6f218bb352bac3ccf150eb"
+  integrity sha512-IPvU9A31qRCZ7lds/x+ksuK/UMndd0EASveAvCvEtFFKIZjZ+m/a4a0L7S28KEWoR5ka8526hlSghDo4Hrc2Hg==
   dependencies:
     cluster-key-slot "1.1.2"
     generic-pool "3.9.0"
@@ -5314,12 +5304,12 @@ readdirp@~3.6.0:
     picomatch "^2.2.1"
 
 redis@^4.6.7:
-  version "4.6.14"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-4.6.14.tgz#599e49b65816c56a6683f6b19dc374c8e786d091"
-  integrity sha512-GrNg/e33HtsQwNXL7kJT+iNFPSwE1IPmd7wzV3j4f2z0EYxZfZE7FVTmUysgAtqQQtg5NXF5SNLR9OdO/UHOfw==
+  version "4.6.15"
+  resolved "https://registry.yarnpkg.com/redis/-/redis-4.6.15.tgz#b94599fbbd8279182b02f5bb34866c2a1556d71c"
+  integrity sha512-2NtuOpMW3tnYzBw6S8mbXSX7RPzvVFCA2wFJq9oErushO2UeBkxObk+uvo7gv7n0rhWeOj/IzrHO8TjcFlRSOg==
   dependencies:
     "@redis/bloom" "1.2.0"
-    "@redis/client" "1.5.16"
+    "@redis/client" "1.5.17"
     "@redis/graph" "1.1.1"
     "@redis/json" "1.0.6"
     "@redis/search" "1.1.6"
