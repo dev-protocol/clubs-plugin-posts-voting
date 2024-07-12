@@ -33,14 +33,11 @@ type PostsPlus = Posts & {
 	stripedMarkdown: string
 }
 
-const feedId = ref('')
-
 const fetchPolls = async (feed: OptionsDatabase): Promise<Polls> => {
-	feedId.value = feed.id
 	const title = feed.title
 
 	const url = new URL(
-		`/api/${postsPluginId}/${feedId.value}/search/has:option/%23poll`,
+		`/api/${postsPluginId}/${feed.id}/search/has:option/%23poll`,
 		window.location.origin,
 	)
 
@@ -48,7 +45,8 @@ const fetchPolls = async (feed: OptionsDatabase): Promise<Polls> => {
 	const json = await res.json()
 
 	return {
-		title: title ? title : feedId.value,
+		title: title ? title : feed.id,
+		feedId: feed.id,
 		values: decode(json.contents),
 	}
 }
@@ -89,7 +87,7 @@ onMounted(async () => {
 			<a
 				v-for="post in poll.values"
 				:key="post.id"
-				:href="`/posts/${feedId}/${post.id}`"
+				:href="`/posts/${poll.feedId}/${post.id}`"
 				class="block mb-4 p-2 bg-gray-100 rounded"
 			>
 				<div class="flex justify-between gap-2">
