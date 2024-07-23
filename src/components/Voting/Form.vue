@@ -15,6 +15,10 @@ onSetup((post) => {
 	// Remove options that have not been filled in
 	options.value = options.value.filter((option) => option.poll !== undefined)
 
+	if (options.value.length === 0) {
+		return post
+	}
+
 	const poll: Poll = {
 		options: options.value.map((option) => {
 			return {
