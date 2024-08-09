@@ -2111,9 +2111,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^4.0.0:
-  version "4.13.2"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.13.2.tgz#1a211c0da58781c387df2dc1c194ee2c6b8262b5"
-  integrity sha512-bdfUV6zfOWOV/IbROqVx+1cuAFXY0PZpVxr4JO9YxCKa5AfQRR8RKXJ2k8QUjalA6dmxQ9FgAQw3FRrzHVOGEQ==
+  version "4.13.3"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.13.3.tgz#0d60eb3174d19a13f153168dab2851e414d85205"
+  integrity sha512-MyhmM0v5sphiVwxAm5jjKxWeuPZijWPJ8Ajdign9QzEmLWSH8vUYIJWx/dWRQ6vF1I0jXrksoj3wtw5nzXt9nw==
   dependencies:
     "@astrojs/compiler" "^2.10.1"
     "@astrojs/internal-helpers" "0.4.1"
@@ -2931,9 +2931,9 @@ electron-to-chromium@^1.4.796:
   integrity sha512-EKH5X5oqC6hLmiS7/vYtZHZFTNdhsYG5NVPRN6Yn0kQHNBlT59+xSM8HBy66P5fxWpKgZbPqb+diC64ng295Jw==
 
 electron-to-chromium@^1.5.4:
-  version "1.5.5"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.5.tgz#03bfdf422bdd2c05ee2657efedde21264a1a566b"
-  integrity sha512-QR7/A7ZkMS8tZuoftC/jfqNkZLQO779SSW3YuZHP4eXpj3EffGLFcB/Xu9AAZQzLccTiCV+EmUo3ha4mQ9wnlA==
+  version "1.5.6"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.6.tgz#c81d9938b5a877314ad370feb73b4e5409b36abd"
+  integrity sha512-jwXWsM5RPf6j9dPYzaorcBSUg6AiqocPEyMpkchkvntaH9HGfOOMZwxMJjDY/XEs3T5dM7uyH1VhRMkqUU9qVw==
 
 elliptic@6.5.4:
   version "6.5.4"
@@ -5322,9 +5322,9 @@ postcss@^8.4.23, postcss@^8.4.28, postcss@^8.4.38:
     source-map-js "^1.2.0"
 
 postcss@^8.4.40:
-  version "8.4.40"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.40.tgz#eb81f2a4dd7668ed869a6db25999e02e9ad909d8"
-  integrity sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==
+  version "8.4.41"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.41.tgz#d6104d3ba272d882fe18fc07d15dc2da62fa2681"
+  integrity sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==
   dependencies:
     nanoid "^3.3.7"
     picocolors "^1.0.1"
