@@ -404,13 +404,13 @@
   resolved "https://registry.yarnpkg.com/@boringer-avatars/vue3/-/vue3-0.2.1.tgz#db9d4183540de0d0af9e4e160cfc009f6f405e87"
   integrity sha512-KzAfh31SDXToTvFL0tBNG5Ur+VzfD1PP4jmY5/GS+eIuObGTIAiUu9eiht0LjuAGI+0xCgnaEgsTrOx8H3vLOQ==
 
-"@devprotocol/clubs-core@3.24.2":
-  version "3.24.2"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-core/-/clubs-core-3.24.2.tgz#ebb7eb38f40caeced0f006e4206aeb3ab4a6e4b7"
-  integrity sha512-CtQcLt8+Cc7E2ui85h3R5CgksPs924FHAt6N6bfgOgPRmqTeT0lFVAdb3hLLq+6MczSjaSUriiBTC7WJ3858Kg==
+"@devprotocol/clubs-core@3.24.3":
+  version "3.24.3"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-core/-/clubs-core-3.24.3.tgz#1d2f81c98f08dd7b155e7de4ffb364cef8d57104"
+  integrity sha512-6T7zHTTYA+MaAfKBkEyV234mEk7mG96eh5n5ltpP+mwsS3BE5uYyh5ufUIg43u2Qg4pa3sZiZlSnqN7Zw51ing==
   dependencies:
     "@devprotocol/dev-kit" "8.7.0"
-    "@devprotocol/elements" "1.5.3"
+    "@devprotocol/elements" "1.6.0"
     "@devprotocol/hashi" "2.4.0-beta.0"
     "@devprotocol/util-ts" "4.0.0"
     "@ethersproject/abstract-provider" "^5.7.0"
@@ -464,10 +464,10 @@
     js-base64 "^3.7.2"
     ramda "^0.30.0"
 
-"@devprotocol/elements@1.5.3":
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/@devprotocol/elements/-/elements-1.5.3.tgz#b06a34ebe57c25004dbc43b382cac38811c089db"
-  integrity sha512-tV3KS8G9mjWwO+G+wxZZKY32EUq7L2ZsCDniAk1RdYPqH1WaqTKYlohk7xng3MWXo/Pn3N4cfPcEcSvG6t7HkQ==
+"@devprotocol/elements@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@devprotocol/elements/-/elements-1.6.0.tgz#9fa66864874fef708d22e8712aa2e67614538585"
+  integrity sha512-Rty+FXnPWwtU7vzyRg9USNMgoaMdlIkSvWyLQbhQbbSu5NwmAvS4FKP6MHg2azkshBsE3yCFQlh6m47/rkgiyA==
   dependencies:
     "@aggre/ullr" "^3.2.0"
     lit "^3.0.0"
