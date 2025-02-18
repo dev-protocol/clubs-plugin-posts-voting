@@ -3217,9 +3217,9 @@ esquery@^1.4.2:
     estraverse "^5.1.0"
 
 esrap@^1.4.3:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/esrap/-/esrap-1.4.4.tgz#0cb6d2a694f5dc0a8f62f79d585a55c29ee2e572"
-  integrity sha512-tDN6xP/r/b3WmdpWm7LybrD252hY52IokcycPnO+WHfhFF0+n5AWtcLLK7VNV6m0uYgVRhGVs8OkZwRyfC7HzQ==
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/esrap/-/esrap-1.4.5.tgz#45469ad75773fd948d0eb190c2677e4807ba2483"
+  integrity sha512-CjNMjkBWWZeHn+VX+gS8YvFwJ5+NDhg8aWZBSFJPR8qQduDNjbJodA2WcwCm7uQa5Rjqj+nZvVmceg1RbHFB9g==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.15"
 
@@ -6271,9 +6271,9 @@ svelte2tsx@^0.7.34:
     pascal-case "^3.1.1"
 
 svelte@^5.0.0:
-  version "5.20.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.20.1.tgz#2379284f2623da132b4590315ac6911fcf9926d9"
-  integrity sha512-aCARru2WTdzJl55Ws8SK27+kvQwd8tijl4kY7NoDUXUHtTHhxMa8Lf6QNZKmU7cuPu3jjFloDO1j5HgYJNIIWg==
+  version "5.20.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.20.2.tgz#b08c003e982a32c588dcbbf24c1ac8606c0654dd"
+  integrity sha512-aYXJreNUiyTob0QOzRZeBXZMGeFZDch6SrSRV8QTncZb6zj0O3BEdUzPpojuHQ1pTvk+KX7I6rZCXPUf8pTPxA==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
