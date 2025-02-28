@@ -28,7 +28,7 @@
   resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.10.tgz#ae829f170158e297a9b6a28f161a8e487d00814d"
   integrity sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==
 
-"@astrojs/compiler@^2.10.3":
+"@astrojs/compiler@^2.10.4":
   version "2.10.4"
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-2.10.4.tgz#883e469600d06d101d77829c91c4215b270cd503"
   integrity sha512-86B3QGagP99MvSNwuJGiYSBHnh8nLvm2Q1IFI15wIUJJsPeQTO3eb2uwBmrqRsXykeR/mBzH8XCgz5AAt1BJrQ==
@@ -2238,11 +2238,11 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^5.0.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.4.0.tgz#481e9866c9632bdde13bd426af7f8ee43155892e"
-  integrity sha512-7A//zrCtJUGfJcQAt6PDhMu4a6pogvnK54HLXnYlPnKSWQZu/tKIYWfyvocVnTuEYIPExIN3CpjNAFFLoweJVw==
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.4.1.tgz#7f24f8408b3f7a12cec6736ccbdb5bc7dc0bbd4d"
+  integrity sha512-z9BiBz8pV7pZVn1evZv/9bJil3A9UZNyEjDFH3IjD87ioz95HHGLgbjRbbqF1EwSy8JOLKlMNyuQPqjrX8xqWw==
   dependencies:
-    "@astrojs/compiler" "^2.10.3"
+    "@astrojs/compiler" "^2.10.4"
     "@astrojs/internal-helpers" "0.6.0"
     "@astrojs/markdown-remark" "6.2.0"
     "@astrojs/telemetry" "3.2.0"
