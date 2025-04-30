@@ -78,13 +78,13 @@
     prismjs "^1.29.0"
 
 "@astrojs/svelte@^7.0.0":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@astrojs/svelte/-/svelte-7.0.12.tgz#6280d3217df499efc57d27357b24f373a182276d"
-  integrity sha512-V11vC2YfdrJln40YTyhi6tiQCgHP3rjeJLpIWn7JJe3iT0JKOlE1SXH3kmJ9SiFgXJ5TbpsysY5p/bf/RMp0kg==
+  version "7.0.13"
+  resolved "https://registry.yarnpkg.com/@astrojs/svelte/-/svelte-7.0.13.tgz#5a7205dd6b605e6a75f4d5bddd6f3053cc153d9e"
+  integrity sha512-wAWZu3Y/shIa83qVWyhr34vqwfl0GOXLsTYp081mMMOzuiyDAqmusFILua2zpbhqsQhQlhH/BYbGLEIQ/zQpRA==
   dependencies:
     "@sveltejs/vite-plugin-svelte" "^5.0.3"
     svelte2tsx "^0.7.36"
-    vite "^6.3.3"
+    vite "^6.3.4"
 
 "@astrojs/tailwind@^6.0.0":
   version "6.0.2"
@@ -109,14 +109,14 @@
     which-pm-runs "^1.1.0"
 
 "@astrojs/vue@^5.0.0":
-  version "5.0.12"
-  resolved "https://registry.yarnpkg.com/@astrojs/vue/-/vue-5.0.12.tgz#ebd1e914ca6361d58f75006821ab9f33fa434176"
-  integrity sha512-Arel2LsmXBMmzWV5hfKkKMXO7Zy9EKXFq3B8zD/ehavEeIQcah16GxyQm1VHFenC3DEZpzpnJG02wopkJW4bcA==
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@astrojs/vue/-/vue-5.0.13.tgz#87aa885bf674071c127ed28042d496429a388b6f"
+  integrity sha512-aM5ekWc/8rXiLtCy4OKXwel5gjnKpl647O/yNtEji8g6bVcec4aetE/KNWkYU6KU57SAsOlINeCDWHiIyqmz6Q==
   dependencies:
     "@vitejs/plugin-vue" "5.2.1"
     "@vitejs/plugin-vue-jsx" "^4.1.2"
     "@vue/compiler-sfc" "^3.5.13"
-    vite "^6.3.3"
+    vite "^6.3.4"
     vite-plugin-vue-devtools "^7.7.5"
 
 "@ava/typescript@5.0.0":
@@ -2131,9 +2131,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^5.0.0:
-  version "5.7.9"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.7.9.tgz#09c8163e89f5b94d8af60cbe84d85b89c8e87021"
-  integrity sha512-P0cLijpmu4xZEXIh83ROOJqiCWRA7KSo24nhRLIjbMkiPElXu2qL1c28m7xhylCXeHa0lnCGPLyNjs1Wx3GyxA==
+  version "5.7.10"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.7.10.tgz#c144d3401dc1377272a5b98832e8ea5a63c6e906"
+  integrity sha512-9TQcFZqP2w6//JXXUHfw8/5PX7KUx9EkG5O3m+hISuyeUztvjY1q5+p7+C5HiXyg24Zs3KkpieoL5BGRXGCAGA==
   dependencies:
     "@astrojs/compiler" "^2.11.0"
     "@astrojs/internal-helpers" "0.6.1"
@@ -2186,7 +2186,7 @@ astro@^5.0.0:
     unist-util-visit "^5.0.0"
     unstorage "^1.15.0"
     vfile "^6.0.3"
-    vite "^6.2.6"
+    vite "^6.3.4"
     vitefu "^1.0.6"
     xxhash-wasm "^1.1.0"
     yargs-parser "^21.1.1"
@@ -2434,9 +2434,9 @@ camelcase@^8.0.0:
   integrity sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==
 
 caniuse-lite@^1.0.30001688:
-  version "1.0.30001715"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001715.tgz#bd325a37ad366e3fe90827d74062807a34fbaeb2"
-  integrity sha512-7ptkFGMm2OAOgvZpwgA4yjQ5SQbrNVGdRjzH0pBdy1Fasvcr+KAeECmbCAECzTuDuoX0FCY8KzUxjf9+9kfZEw==
+  version "1.0.30001716"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001716.tgz#39220dfbc58c85d9d4519e7090b656aa11ca4b85"
+  integrity sha512-49/c1+x3Kwz7ZIWt+4DvK3aMJy9oYXXG6/97JKsnjdCk/6n9vVyWL8NAwVt95Lwt9eigI10Hl782kDfZUUlRXw==
 
 caniuse-lite@^1.0.30001702:
   version "1.0.30001707"
@@ -2948,9 +2948,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.73:
-  version "1.5.144"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.144.tgz#9804fd6c342802e1d4b4fe57babbe8b64ca0b46c"
-  integrity sha512-eJIaMRKeAzxfBSxtjYnoIAw/tdD6VIH6tHBZepZnAbE3Gyqqs5mGN87DvcldPUbVkIljTK8pY0CMcUljP64lfQ==
+  version "1.5.145"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.145.tgz#abd50700ac2c809e40a4694584f66711ee937fb6"
+  integrity sha512-pZ5EcTWRq/055MvSBgoFEyKf2i4apwfoqJbK/ak2jnFq8oHjZ+vzc3AhRcz37Xn+ZJfL58R666FLJx0YOK9yTw==
 
 elliptic@6.5.4:
   version "6.5.4"
@@ -5092,9 +5092,9 @@ oniguruma-parser@^0.12.0:
   integrity sha512-fD9o5ebCmEAA9dLysajdQvuKzLL7cj+w7DQjuO3Cb6IwafENfx6iL+RGkmyW82pVRsvgzixsWinHvgxTMJvdIA==
 
 oniguruma-to-es@^4.2.0:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/oniguruma-to-es/-/oniguruma-to-es-4.3.1.tgz#40ceba461ad95c9242e3e8bee797d253cbee6a0c"
-  integrity sha512-VtX1kepWO+7HG7IWV5v72JhiqofK7XsiHmtgnvurnNOTdIvE5mrdWYtsOrQyrXCv1L2Ckm08hywp+MFO7rC4Ug==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/oniguruma-to-es/-/oniguruma-to-es-4.3.2.tgz#e764c79482e9bdbe5f88d22ad69c3d26589cf4d9"
+  integrity sha512-Hxxc18dGbVYzcTp2W64YwxQLYabiYM+dOX5Dtycy3qLvuYE4HIQjwfgEeAtPS6chFJs8UdINTQ83/Rlh+1Qwsg==
   dependencies:
     oniguruma-parser "^0.12.0"
     regex "^6.0.1"
@@ -6665,10 +6665,10 @@ vite-plugin-vue-inspector@^5.3.1:
     kolorist "^1.8.0"
     magic-string "^0.30.4"
 
-vite@^6.2.6, vite@^6.3.3:
-  version "6.3.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.3.3.tgz#497392c3f2243194e4dbf09ea83e9a3dddf49b88"
-  integrity sha512-5nXH+QsELbFKhsEfWLkHrvgRpTdGJzqOZ+utSdmPTvwHmvU6ITTm3xx+mRusihkcI8GeC7lCDyn3kDtiki9scw==
+vite@^6.3.4:
+  version "6.3.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-6.3.4.tgz#d441a72c7cd9a93b719bb851250a4e6c119c9cff"
+  integrity sha512-BiReIiMS2fyFqbqNT/Qqt4CVITDU9M9vE+DKcVAsB+ZV0wvTKd+3hMbkpxz1b+NmEDMegpVbisKiAZOnvO92Sw==
   dependencies:
     esbuild "^0.25.0"
     fdir "^6.4.4"
