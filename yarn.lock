@@ -2094,12 +2094,7 @@ acorn@^8.11.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.0.tgz#063e2c70cac5fb4f6467f0b11152e04c682795b0"
   integrity sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==
 
-acorn@^8.12.1:
-  version "8.14.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.1.tgz#721d5dc10f7d5b5609a891773d47731796935dfb"
-  integrity sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==
-
-acorn@^8.14.1:
+acorn@^8.12.1, acorn@^8.14.1:
   version "8.15.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.15.0.tgz#a360898bc415edaac46c8241f6383975b930b816"
   integrity sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==
@@ -6165,9 +6160,9 @@ svelte2tsx@^0.7.39:
     pascal-case "^3.1.1"
 
 svelte@^5.0.0:
-  version "5.33.18"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.33.18.tgz#883d866d809c1fa5104c0c5669bbef03e5c43b12"
-  integrity sha512-GVAhi8vi8pGne/wlEdnfWIJvSR9eKvEknxjfL5Sr8gQALiyk8Ey+H0lhUYLpjW+MrqgH9h4dgh2NF6/BTFprRg==
+  version "5.33.19"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.33.19.tgz#4812ff70af2892627de73cb5b4c316d390fa6978"
+  integrity sha512-udmgc1nnGeAgnfVJjOMfSOAqPAKv8N65MWN2kDuxo6BZthTaUcsLh4vP8bdZC0bMXLGn69smSZXgQOeuZBOn4Q==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
