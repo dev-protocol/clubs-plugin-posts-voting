@@ -39,7 +39,7 @@
 		"bignumber.js": "9.3.1",
 		"ethers": "6.15.0",
 		"ramda": "0.31.3",
-		"sass": "1.91.0",
+		"sass": "1.92.0",
 		"uuid": "^11.0.0",
 		"@boringer-avatars/vue3": "^0.2.1",
 		"remark": "^15.0.1",
