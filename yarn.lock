@@ -396,10 +396,10 @@
     cross-fetch "^3.0.4"
     fontkit "^2.0.2"
 
-"@devprotocol/clubs-core@3.27.1":
-  version "3.27.1"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-core/-/clubs-core-3.27.1.tgz#95c0036c7f27ef292f08fc417a1709b5da45abb1"
-  integrity sha512-GATDG3xDYAUODTi2qO3RAzeFZe70WzNeeCdItenPuZ4V/Wtd0mJqvCECO5dkX6MsHfW3s9DcSrE42tv6GlBJTQ==
+"@devprotocol/clubs-core@3.28.0":
+  version "3.28.0"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-core/-/clubs-core-3.28.0.tgz#ab876555772e9433c8310471c20edb57c1e46dcc"
+  integrity sha512-cfiCfKSCNWX7G23UlNxhXwfCSMP2IOvsD8m563R64ZpxoW6r0xioGn+dWFTzQfTuoW/fHfmPDy0VhdC/BexOTw==
   dependencies:
     "@devprotocol/dev-kit" "8.7.0"
     "@devprotocol/elements" "1.6.0"
