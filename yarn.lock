@@ -989,7 +989,15 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz#6912b00d2c631c0d15ce1a7ab57cd657f2a8f8ba"
   integrity sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==
 
-"@jridgewell/trace-mapping@^0.3.24", "@jridgewell/trace-mapping@^0.3.28":
+"@jridgewell/trace-mapping@^0.3.24":
+  version "0.3.31"
+  resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz#db15d6781c931f3a251a3dac39501c98a6082fd0"
+  integrity sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==
+  dependencies:
+    "@jridgewell/resolve-uri" "^3.1.0"
+    "@jridgewell/sourcemap-codec" "^1.4.14"
+
+"@jridgewell/trace-mapping@^0.3.28":
   version "0.3.30"
   resolved "https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.30.tgz#4a76c4daeee5df09f5d3940e087442fb36ce2b99"
   integrity sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==
@@ -6161,9 +6169,9 @@ svelte2tsx@^0.7.42:
     pascal-case "^3.1.1"
 
 svelte@^5.0.0:
-  version "5.38.8"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.38.8.tgz#9d6f48f3d05a0ec569de1a04b3d7dc908bfa6556"
-  integrity sha512-UDpTbM/iuZ4MaMnn4ODB3rf5JKDyPOi5oJcopP0j7YHQ9BuJtsAqsR71r2N6AnJf7ygbalTJU5y8eSWGAQZjlQ==
+  version "5.38.9"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.38.9.tgz#65ff3f56154d391c13a28243996240b0c026abd5"
+  integrity sha512-enpmouVYRlrCJh1T176A+8LgqRVf4Qgin2k6EZ8iU9SpqgmrIidm2M5tBwJttjNcxWjvZzs3rLu33NJoUTsF+Q==
   dependencies:
     "@jridgewell/remapping" "^2.3.4"
     "@jridgewell/sourcemap-codec" "^1.5.0"
