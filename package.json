@@ -62,7 +62,7 @@
 		"@rollup/plugin-typescript": "12.1.4",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/dotenv": "8.2.3",
-		"@types/node": "22.18.8",
+		"@types/node": "22.18.9",
 		"@types/ramda": "0.31.1",
 		"@typescript-eslint/eslint-plugin": "8.46.0",
 		"@typescript-eslint/parser": "8.46.0",
