@@ -2247,9 +2247,9 @@ arrify@^3.0.0:
   integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 astro@^5.0.0:
-  version "5.16.0"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.16.0.tgz#6d9c4fb640e282aaa8486f3e87461098acde34b3"
-  integrity sha512-GaDRs2Mngpw3dr2vc085GnORh98NiXxwIjg/EoQQQl/icZt3Z7s0BRsYHDZ8swkZbOA6wZsqWJdrNirl+iKcDg==
+  version "5.16.1"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.16.1.tgz#04955a4aa8e823ba6cb92b00666c0c42091717de"
+  integrity sha512-fkEP3Qi7QlVL4ncyecLRzi+eZx/2RByNApjyw7n5kMhkF9vCYuOZBBm7EbdYM3vrCirSqvSn19C03vjhvKRa6A==
   dependencies:
     "@astrojs/compiler" "^2.13.0"
     "@astrojs/internal-helpers" "0.7.5"
@@ -2296,7 +2296,7 @@ astro@^5.0.0:
     rehype "^13.0.2"
     semver "^7.7.3"
     shiki "^3.15.0"
-    smol-toml "^1.5.0"
+    smol-toml "^1.5.2"
     svgo "^4.0.0"
     tinyexec "^1.0.2"
     tinyglobby "^0.2.15"
@@ -2304,7 +2304,7 @@ astro@^5.0.0:
     ultrahtml "^1.6.0"
     unifont "~0.6.0"
     unist-util-visit "^5.0.0"
-    unstorage "^1.17.2"
+    unstorage "^1.17.3"
     vfile "^6.0.3"
     vite "^6.4.1"
     vitefu "^1.1.1"
@@ -2312,7 +2312,7 @@ astro@^5.0.0:
     yargs-parser "^21.1.1"
     yocto-spinner "^0.2.3"
     zod "^3.25.76"
-    zod-to-json-schema "^3.24.6"
+    zod-to-json-schema "^3.25.0"
     zod-to-ts "^1.2.0"
   optionalDependencies:
     sharp "^0.34.0"
@@ -2781,9 +2781,9 @@ cookie-es@^1.2.2:
   integrity sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==
 
 cookie@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/cookie/-/cookie-1.0.2.tgz#27360701532116bd3f1f9416929d176afe1e4610"
-  integrity sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-1.1.0.tgz#080b3b9a5e7d0970caf9414ac953d24a0e7840a3"
+  integrity sha512-vXiThu1/rlos7EGu8TuNZQEg2e9TvhH9dmS4T4ZVzB7Ao1agEZ6EG3sn5n+hZRYUgduISd1HpngFzAZiDGm5vQ==
 
 copy-anything@^4:
   version "4.0.5"
@@ -4595,9 +4595,9 @@ mdast-util-phrasing@^4.0.0:
     unist-util-is "^6.0.0"
 
 mdast-util-to-hast@^13.0.0:
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/mdast-util-to-hast/-/mdast-util-to-hast-13.2.0.tgz#5ca58e5b921cc0a3ded1bc02eed79a4fe4fe41f4"
-  integrity sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==
+  version "13.2.1"
+  resolved "https://registry.yarnpkg.com/mdast-util-to-hast/-/mdast-util-to-hast-13.2.1.tgz#d7ff84ca499a57e2c060ae67548ad950e689a053"
+  integrity sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==
   dependencies:
     "@types/hast" "^3.0.0"
     "@types/mdast" "^4.0.0"
@@ -5170,7 +5170,7 @@ nwsapi@^2.2.12:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.12.tgz#fb6af5c0ec35b27b4581eb3bbad34ec9e5c696f8"
   integrity sha512-qXDmcVlZV4XRtKFzddidpfVP4oMSGhga+xdMc25mv8kaLUHtgzCDhUxkrN8exkGdTlLNaXj7CV3GtON7zuGZ+w==
 
-ofetch@^1.4.1, ofetch@^1.5.0:
+ofetch@^1.4.1, ofetch@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ofetch/-/ofetch-1.5.1.tgz#5c43cc56e03398b273014957060344254505c5c7"
   integrity sha512-2W4oUZlVaqAPAil6FUg/difl6YhqhUR7x2eZY4bQCko22UXg3hptq9KLQdqFClV+Wu85UX7hNtdGTngi/1BxcA==
@@ -5204,9 +5204,9 @@ oniguruma-parser@^0.12.1:
   integrity sha512-8Unqkvk1RYc6yq2WBYRj4hdnsAxVze8i7iPfQr8e4uSP3tRv0rpZcbGUDvxfQQcdwHt/e9PrMvGCsa8OqG9X3w==
 
 oniguruma-to-es@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/oniguruma-to-es/-/oniguruma-to-es-4.3.3.tgz#50db2c1e28ec365e102c1863dfd3d1d1ad18613e"
-  integrity sha512-rPiZhzC3wXwE59YQMRDodUwwT9FZ9nNBwQQfsd1wfdtlKEyCdRV0avrTcSZ5xlIvGRVPd/cx6ZN45ECmS39xvg==
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/oniguruma-to-es/-/oniguruma-to-es-4.3.4.tgz#0b909d960faeb84511c979b1f2af64e9bc37ce34"
+  integrity sha512-3VhUGN3w2eYxnTzHn+ikMI+fp/96KoRSVK9/kMTcFqj1NRDh2IhQCKvYxDnWePKRXY/AqH+Fuiyb7VHSzBjHfA==
   dependencies:
     oniguruma-parser "^0.12.1"
     regex "^6.0.1"
@@ -6086,7 +6086,7 @@ slice-ansi@^5.0.0:
     ansi-styles "^6.0.0"
     is-fullwidth-code-point "^4.0.0"
 
-smol-toml@^1.4.2, smol-toml@^1.5.0:
+smol-toml@^1.4.2, smol-toml@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/smol-toml/-/smol-toml-1.5.2.tgz#70d4324d47b7cccbc67d611829c9b3f6d528b02f"
   integrity sha512-QlaZEqcAH3/RtNyet1IPIYPsEWAaYyXXv1Krsi+1L/QHppjX4Ifm8MQsBISz9vE8cHicIq3clogsheili5vhaQ==
@@ -6638,10 +6638,10 @@ universalify@^2.0.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-2.0.1.tgz#168efc2180964e6386d061e094df61afe239b18d"
   integrity sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==
 
-unstorage@^1.17.2:
-  version "1.17.2"
-  resolved "https://registry.yarnpkg.com/unstorage/-/unstorage-1.17.2.tgz#543d06f24e5b2005b2e9c15ea4180782df987a11"
-  integrity sha512-cKEsD6iBWJgOMJ6vW1ID/SYuqNf8oN4yqRk8OYqaVQ3nnkJXOT1PSpaMh2QfzLs78UN5kSNRD2c/mgjT8tX7+w==
+unstorage@^1.17.3:
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/unstorage/-/unstorage-1.17.3.tgz#805acbeab7f7b97f0d0492427af18e650eda4e57"
+  integrity sha512-i+JYyy0DoKmQ3FximTHbGadmIYb8JEpq7lxUjnjeB702bCPum0vzo6oy5Mfu0lpqISw7hCyMW2yj4nWC8bqJ3Q==
   dependencies:
     anymatch "^3.1.3"
     chokidar "^4.0.3"
@@ -6649,7 +6649,7 @@ unstorage@^1.17.2:
     h3 "^1.15.4"
     lru-cache "^10.4.3"
     node-fetch-native "^1.6.7"
-    ofetch "^1.5.0"
+    ofetch "^1.5.1"
     ufo "^1.6.1"
 
 update-browserslist-db@^1.1.1:
@@ -7098,7 +7098,7 @@ zimmerframe@^1.1.2:
   resolved "https://registry.yarnpkg.com/zimmerframe/-/zimmerframe-1.1.4.tgz#0352b5cafad3ad4526b0a526a9a52d9c040d865b"
   integrity sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==
 
-zod-to-json-schema@^3.24.6:
+zod-to-json-schema@^3.25.0:
   version "3.25.0"
   resolved "https://registry.yarnpkg.com/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz#df504c957c4fb0feff467c74d03e6aab0b013e1c"
   integrity sha512-HvWtU2UG41LALjajJrML6uQejQhNJx+JBO9IflpSja4R03iNWfKXrj6W2h7ljuLyc1nKS+9yDyL/9tD1U/yBnQ==
