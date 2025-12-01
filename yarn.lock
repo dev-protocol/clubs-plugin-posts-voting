@@ -1429,9 +1429,9 @@
   integrity sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==
 
 "@sveltejs/acorn-typescript@^1.0.5":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@sveltejs/acorn-typescript/-/acorn-typescript-1.0.7.tgz#ee92cb27a5084761a76b7cf65cf997cda156f507"
-  integrity sha512-znp1A/Y1Jj4l/Zy7PX5DZKBE0ZNY+5QBngiE21NJkfSTyzzC5iKNWOtwFXKtIrn7MXEFBck4jD95iBNkGjK92Q==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@sveltejs/acorn-typescript/-/acorn-typescript-1.0.8.tgz#69c746a7c232094c117c50dedbd1279fc64887b7"
+  integrity sha512-esgN+54+q0NjB0Y/4BomT9samII7jGwNy/2a3wNZbT2A2RpmXsXwUt24LvLhx6jUq2gVk4cWEvcRO6MFQbOfNA==
 
 "@sveltejs/vite-plugin-svelte-inspector@^4.0.1":
   version "4.0.1"
@@ -3342,9 +3342,9 @@ esquery@^1.4.2:
     estraverse "^5.1.0"
 
 esrap@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/esrap/-/esrap-2.2.0.tgz#0b28cd2dd263e4534b506cbd28c412c1c672ba00"
-  integrity sha512-WBmtxe7R9C5mvL4n2le8nMUe4mD5V9oiK2vJpQ9I3y20ENPUomPcphBXE8D1x/Bm84oN1V+lOfgXxtqmxTp3Xg==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/esrap/-/esrap-2.2.1.tgz#cbe28fe94cd7c75b158609d602f5e345bae21259"
+  integrity sha512-GiYWG34AN/4CUyaWAgunGt0Rxvr1PTMlGC0vvEov/uOQYWne2bpN03Um+k8jT+q3op33mKouP2zeJ6OlM+qeUg==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.15"
 
@@ -6262,9 +6262,9 @@ svelte2tsx@^0.7.42:
     scule "^1.3.0"
 
 svelte@^5.0.0:
-  version "5.45.2"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.45.2.tgz#42f4a561812fcbafc76278c35580464ad9ddeeff"
-  integrity sha512-yyXdW2u3H0H/zxxWoGwJoQlRgaSJLp+Vhktv12iRw2WRDlKqUPT54Fi0K/PkXqrdkcQ98aBazpy0AH4BCBVfoA==
+  version "5.45.3"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.45.3.tgz#a7f36b3b8dcb68a3fc0b138c13a5ac0dcc9fb7a2"
+  integrity sha512-ngKXNhNvwPzF43QqEhDOue7TQTrG09em1sd4HBxVF0Wr2gopAmdEWan+rgbdgK4fhBtSOTJO8bYU4chUG7VXZQ==
   dependencies:
     "@jridgewell/remapping" "^2.3.4"
     "@jridgewell/sourcemap-codec" "^1.5.0"
