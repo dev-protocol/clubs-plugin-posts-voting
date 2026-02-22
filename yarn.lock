@@ -6474,9 +6474,9 @@ svelte2tsx@^0.7.45:
     scule "^1.3.0"
 
 svelte@^5.0.0:
-  version "5.53.1"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.53.1.tgz#0792b193913108d9563afbca038e35f5bf167bdc"
-  integrity sha512-WzxFHZhhD23Qzu7JCYdvm1rxvRSzdt9HtHO8TScMBX51bLRFTcJmATVqjqXG+6Ln6hrViGCo9DzwOhAasxwC/w==
+  version "5.53.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.53.2.tgz#da23077c34fb5039d76a3c47833083841392d175"
+  integrity sha512-yGONuIrcl/BMmqbm6/52Q/NYzfkta7uVlos5NSzGTfNJTTFtPPzra6rAQoQIwAqupeM3s9uuTf5PvioeiCdg9g==
   dependencies:
     "@jridgewell/remapping" "^2.3.4"
     "@jridgewell/sourcemap-codec" "^1.5.0"
